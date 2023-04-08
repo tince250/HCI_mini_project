@@ -1,0 +1,23 @@
+#header-div {
+    width: 100%;
+    /* padding-left: 20px; */
+    box-shadow: 0 5px 2px -2px #B9BBBD;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    width: 120px;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+#go-back-text{
+    margin-right: 20px;
+    cursor: pointer;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+}
