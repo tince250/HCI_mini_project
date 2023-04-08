@@ -1,0 +1,60 @@
+<div id="main-container" class="column">
+    <div class="title column">
+        <img id="title-img" src="../../assets/images/search-title.svg">
+        <img id="title-text" src="../../assets/images/Cookeasy-text.svg">
+    </div>
+    <div class="form" >
+        <form fxLayout="column" #formDirective="ngForm">
+            <div class="field-title row">
+                <p>Prep time</p>
+                <div class="line"></div>
+            </div>
+            <mat-form-field [hideRequiredMarker]="true"  id="name">
+                <mat-label>Name</mat-label>
+                <input matInput type="text" name="name" formControlName="name" />
+            </mat-form-field>
+
+            <div class="field-title row">
+                <p>Calories</p>
+                <div class="line"></div>
+            </div>
+            <div class="row">
+                <mat-form-field [hideRequiredMarker]="true"  id="max-cal">
+                    <mat-label>Max</mat-label>
+                    <input matInput type="text" name="max-cal" formControlName="max-cal" />
+                </mat-form-field>
+                <mat-form-field [hideRequiredMarker]="true"  id="min-cal">
+                    <mat-label>Min</mat-label>
+                    <input matInput type="text" name="name" formControlName="min-cal" />
+                </mat-form-field>
+            </div>
+
+            <div class="field-title row">
+                <p>Any 'frees' ?</p>
+                <div class="line"></div>
+            </div>
+            <div class="checkboxes row">
+                <mat-checkbox>Gluten free</mat-checkbox>
+                <mat-checkbox>Dairy free</mat-checkbox>
+            </div>
+
+            <div class="field-title row">
+                <p>Ingredients to include</p>
+                <div class="line"></div>
+            </div>
+            <mat-form-field [hideRequiredMarker]="true"  id="include-ing">
+                <input matInput type="text" name="include-ing" formControlName="include-ing" />
+            </mat-form-field>
+
+
+            <div class="field-title row">
+                <p>Ingredients to exclude</p>
+                <div class="line"></div>
+            </div>
+            <mat-form-field [hideRequiredMarker]="true"  id="exclued-ing">
+                <input matInput type="text" name="exclude-ing" formControlName="exclude-ing" />
+            </mat-form-field>
+
+        </form>
+    </div>
+</div>

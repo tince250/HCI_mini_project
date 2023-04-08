@@ -1,0 +1,72 @@
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+p {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+#main-container {
+    width: 30%;
+    height: fit-content;
+    border: 1px solid black;
+    align-items: center;
+}
+
+#title-text {
+    width: 30%;
+}
+
+#title-img {
+    height: 200px;
+}
+
+.title {
+    width: 80%;
+    align-items: center;
+}
+
+
+/* FORM */
+
+.form {
+    width: 80%;
+}
+form {
+    width: 100%;
+}
+
+
+/* FIELD TITLE AND LINE */
+
+.field-title {
+    width: 100%;
+    vertical-align: middle;
+}
+
+.field-title > p {
+    align-self: left;
+    margin-right: auto;
+    width: fit-content;
+    color: #455A64;
+}
+
+.line {
+    height: 1px;
+    width: max-content;
+    flex-grow: 1;
+    background-color: #455A64;
+    border: none;
+    outline: none;
+    align-items: baseline;
+    margin-left: 0.5rem;
+    margin-top: auto;
+    margin-bottom: auto;
+}
