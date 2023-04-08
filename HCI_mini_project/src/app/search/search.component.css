@@ -16,8 +16,9 @@ p {
 #main-container {
     width: 30%;
     height: fit-content;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     align-items: center;
+    background-color: white;
 }
 
 #title-text {
@@ -47,8 +48,11 @@ form {
 /* FIELD TITLE AND LINE */
 
 .field-title {
-    width: 100%;
+    width: 90%;
     vertical-align: middle;
+    margin-top: 0.5rem;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .field-title > p {
@@ -60,7 +64,7 @@ form {
 
 .line {
     height: 1px;
-    width: max-content;
+    width: min-content;
     flex-grow: 1;
     background-color: #455A64;
     border: none;
@@ -69,4 +73,70 @@ form {
     margin-left: 0.5rem;
     margin-top: auto;
     margin-bottom: auto;
+}
+
+/* FORM FIELD */
+mat-form-field {
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+.mat-mdc-form-field-subscript-wrapper {
+    height: 0;
+}
+
+mat-label {
+    align-items: center;
+    align-content: center;
+    vertical-align: middle;
+    align-self: center;
+    margin-bottom: auto;
+}
+
+mat-label > img {
+    height: 1rem;
+    margin: auto;
+    margin-right: 0.5rem;
+}
+
+
+/* INCLUDED INGR */
+
+.included-item {
+    font-family: 'Poppins', sans-serif;
+    background-color: #83C5BE;
+    padding: 0.2rem 0.2rem;
+    align-self: center;
+    align-items: center;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+}
+
+.included-item div {
+    color: white;
+}
+
+.included-item > img {
+    margin: auto;
+    margin-right: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 0.5rem;
+    padding-top: 0.3rem;
+}
+
+button {
+    padding: 0.8rem 1.4rem;
+    background-color: #006D77;
+    color: white;
+    border-radius: 12px;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+    margin: 0 auto;
+}
+
+.checkboxes {
+    width: 95%;
+    margin: 0 auto;
 }

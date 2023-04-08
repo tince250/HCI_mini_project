@@ -9,9 +9,11 @@
                 <p>Prep time</p>
                 <div class="line"></div>
             </div>
-            <mat-form-field [hideRequiredMarker]="true"  id="name">
-                <mat-label>Name</mat-label>
-                <input matInput type="text" name="name" formControlName="name" />
+            <mat-form-field [hideRequiredMarker]="true"  id="prep-time">
+                <mat-label class="row"><img src="../../assets/images/clock.svg">
+                    <div>max prep time</div></mat-label>
+                <!-- <input type="number" matInput> -->
+                <input matInput type="text" name="prep-time" formControlName="prep-time" />
             </mat-form-field>
 
             <div class="field-title row">
@@ -45,6 +47,9 @@
             <mat-form-field [hideRequiredMarker]="true"  id="include-ing">
                 <input matInput type="text" name="include-ing" formControlName="include-ing" />
             </mat-form-field>
+            <div id="included-container" *ngIf="included_ing.length != 0" class="row">
+                <div class="included-item row"><div>cacao</div><img src="../../assets/images/white-x.svg"></div>
+            </div>
 
 
             <div class="field-title row">
@@ -57,4 +62,7 @@
 
         </form>
     </div>
+
+    <button>Search</button>
+
 </div>
