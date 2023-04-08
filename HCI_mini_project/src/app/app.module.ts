@@ -9,11 +9,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSnackBarModule} from '@angular/material/snack-bar'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DetailsHeaderComponent } from './details-header/details-header.component';
+import { RecipeDetailsComponent } from './recipe-details/recipe-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DetailsHeaderComponent
+    DetailsHeaderComponent,
+    RecipeDetailsComponent
   ],
   imports: [
     BrowserModule,
