@@ -12,10 +12,19 @@ export class RecipesService {
     constructor(private http: HttpClient) {}
 
     getByName(title: string) : Observable<AllRecipesDTO> {
-        const options: any = {
-            responseType: 'json',
-          };
         return this.http.get<AllRecipesDTO>(environment.search + "&titleMatch=" + title);
+    }
+
+    getByCusine(cuisine: String) : Observable<AllRecipesDTO> {
+        return this.http.get<AllRecipesDTO>(environment.search + "&cuisine=" + cuisine);
+    }
+
+    getByType(type: String) : Observable<AllRecipesDTO> {
+        return this.http.get<AllRecipesDTO>(environment.search + "&type=" + type);
+    }
+
+    getByDiet(diet: String) : Observable<AllRecipesDTO> {
+        return this.http.get<AllRecipesDTO>(environment.search + "&diet=" + diet);
     }
 }
 

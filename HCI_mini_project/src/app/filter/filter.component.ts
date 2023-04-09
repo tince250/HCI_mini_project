@@ -10,6 +10,7 @@ import { AllRecipesDTO, RecipesService } from '../services/recipesService';
 })
 export class FilterComponent implements OnInit {
 
+  selected_cuisine: string = ''
   cuisine_dd: String[] = ['African',
     'American',
     'British',
@@ -36,6 +37,7 @@ export class FilterComponent implements OnInit {
     'Spanish',
     'Thai',
     'Vietnamese']
+  selected_type: string = ''
   type_dd: String[] = ['main course',
     'side dish',
     'dessert',
@@ -50,6 +52,7 @@ export class FilterComponent implements OnInit {
     'fingerfood',
     'snack',
     'drink']
+  selected_diet = ''
   diet_dd: String[] = ['Gluten Free', 'Ketogenic', 'Vegetarian', 'Lacto-Vegetarian', 'Ovo-Vegetarian', 'Vegan', 'Pescetarian', 'Paleo', 'Primal', 'Low FODMAP', 'Whole30']
 
   searchForm = new FormGroup({
@@ -67,6 +70,28 @@ export class FilterComponent implements OnInit {
       console.log(res)
     })
   }
+
+  searchByCusine(c: String) : void {
+    this.service.getByCusine(c).subscribe((res) => {
+      console.log(res)
+    })
+  }
+
+  searchByType(c: String) : void {
+    this.service.getByType(c).subscribe((res) => {
+      console.log(res)
+    })
+  }
+
+  searchByDiet(c: String) : void {
+    this.service.getByDiet(c).subscribe((res) => {
+      console.log(res)
+    })
+  }
+
+
+
+
   }
 
 
