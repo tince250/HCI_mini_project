@@ -8,7 +8,7 @@ import { PageEvent } from '@angular/material/paginator';
 })
 export class HomepageComponent implements OnInit {
 
-  allFetchedRecipes = [{name: "Pizza Margarita"}, {name: "Pizza Margarita"}, {name: "Pizza Margarita"}, {name: "Pizza Margarita"}, {name: "Pizza Margarita"}, {name: "Pizza Margarita"}, {name: "Pizza Margarita"}, {name: "Pizza Margarita"}, {name: "Pizza Margarita"}, {name: "Pizza Margarita"}];
+  allFetchedRecipes = [{name: "Pizza Margarita", id: 1}, {name: "Pizza Margarita", id: 1}, {name: "Pizza Margarita", id: 1}, {name: "Pizza Margarita", id: 1}, {name: "Pizza Margarita", id: 1}, {name: "Pizza Margarita", id: 1}, {name: "Pizza Margarita", id: 1}, {name: "Pizza Margarita", id: 1}, {name: "Pizza Margarita", id: 1}, {name: "Pizza Margarita", id: 1}];
   offset = 0;
   pageSize= 6;
   recipesSlice = this.allFetchedRecipes.slice(this.offset, this.pageSize);
@@ -27,6 +27,10 @@ export class HomepageComponent implements OnInit {
       endIndex = this.allFetchedRecipes.length;
     }
     this.recipesSlice = this.allFetchedRecipes.slice(startIndex, endIndex);
+  }
+
+  openRecipeDetails(id: number) {
+
   }
 
 }

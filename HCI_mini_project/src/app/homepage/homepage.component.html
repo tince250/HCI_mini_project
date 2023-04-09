@@ -2,7 +2,7 @@
 
 <div id="paginated-cards-container">
     <div id="card-container">
-        <div class="recipe-card basic-container" *ngFor="let recipe of recipesSlice">
+        <div class="recipe-card basic-container" *ngFor="let recipe of recipesSlice" (click)="openRecipeDetails(recipe.id)">
             <img class="recipe-card-image" src="../../assets/images/pica.jpeg" alt="">
             <div class="recipe-card-text">
                 <p class="recipe-card-title green">Pizza Margarita</p>
