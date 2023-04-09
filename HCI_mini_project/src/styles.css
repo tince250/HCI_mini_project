@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-
+/* @import "~@angular/material/prebuilt-themes/indigo-pink.css"; */
 body {
     margin: 0;
     background-color: #F9F9F9;
@@ -134,6 +134,7 @@ p {
     display: inline-block;
     margin-right: 10px;
 } 
+
 
 html, body { height: 100%; }
 body { margin: 0; font-family: "Poppins", "Helvetica Neue", sans-serif; }

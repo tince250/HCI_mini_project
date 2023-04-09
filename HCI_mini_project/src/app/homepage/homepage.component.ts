@@ -1,5 +1,7 @@
+import { RecipesService } from './../services/recipesService';
 import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-homepage',
@@ -13,7 +15,7 @@ export class HomepageComponent implements OnInit {
   pageSize= 6;
   recipesSlice = this.allFetchedRecipes.slice(this.offset, this.pageSize);
 
-  constructor() { }
+  constructor(private recipesService: RecipesService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -30,7 +32,16 @@ export class HomepageComponent implements OnInit {
   }
 
   openRecipeDetails(id: number) {
-
+    this.recipesService.getById(716429).subscribe({
+      next: (res) => {
+        this.recipesService.chosenRecipe = res;
+        console.log(res);
+        // this.router.navigate(['/recipe-details']);
+      },
+      error: (err) => {
+        console.log(err)
+      },
+    });
   }
 
 }
