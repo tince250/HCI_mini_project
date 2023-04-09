@@ -14,7 +14,7 @@ p {
 }
 
 #main-container {
-    width: 30%;
+    width: 100%;
     height: fit-content;
     /* border: 1px solid black; */
     align-items: center;

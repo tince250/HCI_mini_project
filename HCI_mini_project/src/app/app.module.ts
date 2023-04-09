@@ -10,12 +10,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 
-import {MatSnackBarModule} from '@angular/material/snack-bar'
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { FilterComponent } from './filter/filter.component'
 
 @NgModule({
   declarations: [
     AppComponent,
-    SearchComponent
+    SearchComponent,
+    FilterComponent
   ],
   imports: [
     BrowserModule,

@@ -13,7 +13,7 @@
                 <mat-label class="row"><img src="../../assets/images/clock.svg">
                     <div>max prep time</div></mat-label>
                 <!-- <input type="number" matInput> -->
-                <input matInput type="text" name="prep-time" formControlName="prep-time" />
+                <input matInput type="number" name="prep-time" formControlName="prep-time" />
             </mat-form-field>
 
             <div class="field-title row">
@@ -23,11 +23,11 @@
             <div class="row">
                 <mat-form-field [hideRequiredMarker]="true"  id="max-cal">
                     <mat-label>Max</mat-label>
-                    <input matInput type="text" name="max-cal" formControlName="max-cal" />
+                    <input matInput type="number" name="max-cal" formControlName="max-cal" />
                 </mat-form-field>
                 <mat-form-field [hideRequiredMarker]="true"  id="min-cal">
                     <mat-label>Min</mat-label>
-                    <input matInput type="text" name="name" formControlName="min-cal" />
+                    <input matInput type="number" name="name" formControlName="min-cal" />
                 </mat-form-field>
             </div>
 
