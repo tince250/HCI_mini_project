@@ -12,7 +12,7 @@ export class HomepageComponent implements OnInit {
 
   allFetchedRecipes = [{name: "Pizza Margarita", id: 1}, {name: "Pizza Margarita", id: 1}, {name: "Pizza Margarita", id: 1}, {name: "Pizza Margarita", id: 1}, {name: "Pizza Margarita", id: 1}, {name: "Pizza Margarita", id: 1}, {name: "Pizza Margarita", id: 1}, {name: "Pizza Margarita", id: 1}, {name: "Pizza Margarita", id: 1}, {name: "Pizza Margarita", id: 1}];
   offset = 0;
-  pageSize= 6;
+  pageSize= 8;
   recipesSlice = this.allFetchedRecipes.slice(this.offset, this.pageSize);
 
   constructor(private recipesService: RecipesService, private router: Router) { }

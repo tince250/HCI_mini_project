@@ -19,10 +19,12 @@ p {
     /* border: 1px solid black; */
     align-items: center;
     background-color: white;
+    color: #B9BBBD !important;
 }
 
 #title-text {
     width: 30%;
+    margin-top: -20px;
 }
 
 #title-img {
@@ -38,7 +40,7 @@ p {
 /* FORM */
 
 .form {
-    width: 80%;
+    width: 90%;
 }
 form {
     width: 100%;
@@ -59,14 +61,14 @@ form {
     align-self: left;
     margin-right: auto;
     width: fit-content;
-    color: #455A64;
+    color: #8c8e90;
 }
 
 .line {
     height: 1px;
     width: min-content;
     flex-grow: 1;
-    background-color: #455A64;
+    background-color: #a5a7a9;
     border: none;
     outline: none;
     align-items: baseline;
@@ -75,32 +77,50 @@ form {
     margin-bottom: auto;
 }
 
+::ng-deep .mat-mdc-form-field-infix {
+    min-height: 44px !important;
+}
+
+::ng-deep .mat-mdc-text-field-wrapper.mdc-text-field--outlined .mat-mdc-form-field-infix {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
 /* FORM FIELD */
+
 mat-form-field {
     margin-top: 0.5rem;
     margin-left: 0.5rem;
     margin-right: 0.5rem;
 }
-
+/* 
 .mat-mdc-form-field-subscript-wrapper {
     height: 0;
 }
 
-mat-label {
+::ng-deep .mdc-form-field>label {
+    color: #8c8e90 !important;
+}
+*/
+
+::ng-deep mat-label {
     align-items: center;
     align-content: center;
     vertical-align: middle;
     align-self: center;
     margin-bottom: auto;
+    color: #8c8e90 !important;
 }
 
 mat-label > img {
     height: 1rem;
     margin: auto;
     margin-right: 0.5rem;
+} 
+
+::ng-deep .mat-mdc-text-field-wrapper .mat-mdc-form-field-flex .mat-mdc-floating-label {
+    top: 50%;
 }
-
-
 
 /* MAX I MIN FIELDS */
 

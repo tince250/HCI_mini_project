@@ -1,5 +1,3 @@
-<p>homepage works!</p>
-
 <div id="paginated-cards-container">
     <div id="card-container">
         <div class="recipe-card basic-container" *ngFor="let recipe of recipesSlice" (click)="openRecipeDetails(recipe.id)">
@@ -20,8 +18,8 @@
     
     
     <mat-paginator [length]="this.allFetchedRecipes.length"
-                  [pageSize]="6"
-                  [pageSizeOptions]="[6, 9, 12]"
+                  [pageSize]="this.pageSize"
+                  [pageSizeOptions]="[8, 12]"
                   (page)="handlePageEvent($event)"
                   aria-label="Select page">
     </mat-paginator>

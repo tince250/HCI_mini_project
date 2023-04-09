@@ -1,6 +1,23 @@
 div {
-    display: flex; 
-    flex-direction: row;
+    display: grid; 
+    grid-template-columns: 25% 75%;
+    grid-template-rows: 10% 90%;
     width: 100%;
+}
+
+app-search {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+}
+
+app-filter {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+app-homepage {
+    grid-column: 2;
+    grid-row: 2;
+    padding: 40px;
 }
 

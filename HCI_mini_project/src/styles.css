@@ -18,6 +18,8 @@ html, body { height: 100%; width: 100%; margin: 0; font-family: "Poppins", sans-
     font-size: 12px;
 }
 
+
+
 .mat-form-field-wrapper {
     height: 50px !important;
 }
