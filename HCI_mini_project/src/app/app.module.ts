@@ -9,28 +9,22 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { SearchComponent } from './search/search.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-<<<<<<< HEAD
 import { DetailsHeaderComponent } from './details-header/details-header.component';
 import { RecipeDetailsComponent } from './recipe-details/recipe-details.component';
-=======
 import { MatCheckboxModule } from '@angular/material/checkbox';
 
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { FilterComponent } from './filter/filter.component'
 import { HttpClientModule } from '@angular/common/http';
->>>>>>> 17359c583b6c50b1f5e884605d3beb3f853c79d2
 
 @NgModule({
   declarations: [
     AppComponent,
-<<<<<<< HEAD
     DetailsHeaderComponent,
-    RecipeDetailsComponent
-=======
+    RecipeDetailsComponent,
     HomepageComponent,
     SearchComponent,
     FilterComponent
->>>>>>> 17359c583b6c50b1f5e884605d3beb3f853c79d2
   ],
   imports: [
     BrowserModule,

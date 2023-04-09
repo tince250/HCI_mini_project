@@ -1,18 +1,18 @@
 <div class="border" id="details-div">
     <div id="upper-details-container">
-        <img src="../assets/images/pizza.jpg" class="img-border">
+        <img [src]="recipe.image" class="img-border">
         <div id="title-container">
             <div id="recipe-name-container">
-                <span id="recipe-name-text" class="green">Pizza margarita</span>
+                <span id="recipe-name-text" class="green">{{ recipe.title }}</span>
             </div>
             <div id="main-details-container" class="gray">
                 <div>
                     <i class="fa-sharp fa-solid fa-clock"></i>
-                    <span>Prep time: <span class="orange">35min</span></span>
+                    <span>Prep time: <span class="orange">{{ recipe.readyInMinutes }} min</span></span>
                 </div>
                 <div>
                     <i class="fa-solid fa-user-group"></i>
-                    <span>Number of servings: <span class="orange">3</span></span>
+                    <span>Number of servings: <span class="orange">{{ recipe.servings }}</span></span>
                 </div>
                 <div>
                     <i class="fa-solid fa-fire"></i>
@@ -22,7 +22,7 @@
         </div>
         <div class="summary-container">
             <span>
-                OOOOOOOOO PARTIZAN ALE ALE PARTIZAN ALEEE ALEE O IDEMO DO POBEDEEEE... OOOOOOOOOO MI ZA TEBE ZIVIMO AJDE INDIJANCE OVE ZAJEDNO DA JEBEMOOO... 
+                {{ recipe.summary.split('.')[0] }}
             </span>
         </div>
         <div id="ingredient-directions-container">
