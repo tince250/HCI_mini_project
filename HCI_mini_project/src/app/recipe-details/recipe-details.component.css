@@ -119,9 +119,13 @@ img {
     margin: 0 auto;
 }
 
-.ingredient-bullet{
-    margin-bottom: 12px;
+#all-directions-bullets-container{
+    width: 95%;
+    margin: 0 auto;
+}
 
+.ingredient-bullet, .direction-bullet{
+    margin-bottom: 12px;
 }
 
 .ingredient-bullet i {
@@ -129,6 +133,24 @@ img {
     margin-right: 8px;
 }
 
-.ingredient-bullet span {
+.ingredient-bullet span, .direction-bullet span {
     color: #455A64;
+}
+
+.direction-bullet i {
+    font-size: 1.2em;
+    margin-right: 8px;
+    color: #D9D9D9;
+}
+
+.square-bullet{
+    display: inline-block;
+    background-color: #D9D9D9;
+    width: 20px;
+    text-align: center;
+    margin-right: 8px;
+    border-radius: 2px;
+    color: white;
+    font-family: 'Poppins';
+    font-weight: 700;
 }
