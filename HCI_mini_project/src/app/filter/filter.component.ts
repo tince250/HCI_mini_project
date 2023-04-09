@@ -1,12 +1,14 @@
-import { Component } from '@angular/core';
+import { HttpErrorResponse } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { AllRecipesDTO, RecipesService } from '../services/recipesService';
 
 @Component({
   selector: 'app-filter',
   templateUrl: './filter.component.html',
   styleUrls: ['./filter.component.css']
 })
-export class FilterComponent {
+export class FilterComponent implements OnInit {
 
   cuisine_dd: String[] = ['African',
     'American',
@@ -54,8 +56,17 @@ export class FilterComponent {
     search_bar: new FormControl(''),
   }, [])
 
-  search() : void {
-    console.log(this.searchForm.value.search_bar)
+  constructor(private service: RecipesService) {}
+  ngOnInit(): void {
+    // throw new Error('Method not implemented.');
+    console.log('cao')
   }
 
-}
+  search() : void {
+    this.service.getByName(this.searchForm.value.search_bar!).subscribe((res) => {
+      console.log(res)
+    })
+  }
+  }
+
+

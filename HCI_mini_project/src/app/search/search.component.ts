@@ -11,7 +11,8 @@ import { prepTimeValidator } from '../validators/searchValidators';
 })
 export class SearchComponent implements OnInit {
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    // throw new Error('Method not implemented.')
+    console.log('cao')
   }
 
   included_ing: String[] = ['s']
