@@ -17,8 +17,6 @@ export class RecipeDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.recipe = this.recipesService.chosenRecipe;
-    this.recipe.name = "ababa";
-    // this.url = 
   }
 
 

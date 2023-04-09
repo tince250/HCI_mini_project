@@ -28,19 +28,10 @@
         <div id="ingredient-directions-container">
             <div id="ingredient-container">
                 <h4 class="green">Ingredients</h4>
-                <div id="all-ingredient-bullets-container">
+                <div id="all-ingredient-bullets-container" *ngFor="let ingredient of recipe.extendedIngredients; let indexOfelement =index">
                     <div class="ingredient-bullet">
                         <i class="fa-solid fa-circle"></i>
-                        <span>1 tbsp of bullet</span>
-                    </div>
-                    <div class="ingredient-bullet">
-                        <i class="fa-solid fa-circle"></i>
-                        <span>1 tbsp of bullet</span>
-                    </div>
-
-                    <div class="ingredient-bullet">
-                        <i class="fa-solid fa-circle"></i>
-                        <span>1 tbsp ooo crno beli volimo vas volimo vas volimooo</span>
+                        <span> {{ ingredient.original }}</span>
                     </div>
                 </div>
             </div>

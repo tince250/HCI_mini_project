@@ -32,20 +32,20 @@ export class HomepageComponent implements OnInit {
   }
 
   openRecipeDetails(id: number) {
-  //   this.recipesService.getById(716429).subscribe({
-  //     next: (res) => {
-  //       this.recipesService.chosenRecipe = res;
-  //       console.log(res.id);
-  //       console.log(res);
-  //       this.router.navigate(['/recipe-details']);
-  //     },
-  //     error: (err) => {
-  //       console.log(err)
-  //     },
-  //   });
-  // }
-  this.router.navigate(['../recipe-details']);
+    this.recipesService.getById(716429).subscribe({
+      next: (res) => {
+        this.recipesService.chosenRecipe = res;
+        console.log(res.id);
+        console.log(res);
+        this.router.navigate(['/recipe-details']);
+      },
+      error: (err) => {
+        console.log(err)
+      },
+    });
+  }
+  //this.router.navigate(['../recipe-details']);
   // }
 }
-}
+//}
 
