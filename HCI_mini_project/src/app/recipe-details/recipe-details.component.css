@@ -107,8 +107,28 @@ img {
 #ingredient-directions-container h4{
     text-align: center;
     font-size: 1.2em !important;
+    margin-bottom: 12px !important;
 }
 
 #directions-container{
     width: 60%;
+}
+
+#all-ingredient-bullets-container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.ingredient-bullet{
+    margin-bottom: 12px;
+
+}
+
+.ingredient-bullet i {
+    color: #FFDDD2;
+    margin-right: 8px;
+}
+
+.ingredient-bullet span {
+    color: #455A64;
 }
