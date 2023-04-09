@@ -114,10 +114,10 @@ mat-label > img {
 
 
 /* INCLUDED INGR */
-/* #included-container {
-    overflow-x: scroll;
+#included-container {
+    overflow-x: hidden;
     overflow-y: hidden;
-} */
+}
 
 
 .included-item {

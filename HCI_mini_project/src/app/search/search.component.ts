@@ -25,8 +25,8 @@ export class SearchComponent implements OnInit {
 
   gluten_checked: boolean = false
   dairy_checked: boolean = false
-  included: String[] = ['cacao']
-  excluded: String[] = ['rise', 'tomatoe']
+  included: String[] = []
+  excluded: String[] = []
   
   search() : void {
     if (this.searchForm.invalid) {
@@ -51,13 +51,25 @@ export class SearchComponent implements OnInit {
   }
 
   add_included(): void {
-    if (this.searchForm.value.include_ing)
-      this.included.push(this.searchForm.value.include_ing);
+    if (this.searchForm.value.include_ing) {
+      if (!this.included.includes(this.searchForm.value.include_ing)) {
+        this.included.push(this.searchForm.value.include_ing);
+        if (this.excluded.includes(this.searchForm.value.include_ing)) {
+          this.remove_excluded(this.searchForm.value.include_ing)
+        }
+      }  
+    }
   }
 
   add_excluded(): void {
-    if (this.searchForm.value.exclude_ing)
-      this.excluded.push(this.searchForm.value.exclude_ing);
+    if (this.searchForm.value.exclude_ing) {
+      if (!this.excluded.includes(this.searchForm.value.exclude_ing)) {
+        this.excluded.push(this.searchForm.value.exclude_ing);
+        if (this.included.includes(this.searchForm.value.exclude_ing)) {
+          this.remove_included(this.searchForm.value.exclude_ing)
+        }
+      }
+    }
   }
 
   remove_included(name: String): void {
