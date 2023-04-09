@@ -79,3 +79,36 @@ img {
 #main-details-container i {
     margin-right: 5px;
 }
+
+#ingredient-directions-container{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    margin-top: 5px;
+    font-family: 'Poppins';
+}
+
+#id-line{
+    /* position: relative; */
+    position: inherit;
+    border-right: 1px solid #B9BBBD;
+    margin-top: 20px;
+    margin-left: 15px;
+    margin-right: 15px;
+    /* height: 100%; */
+}
+
+#ingredient-container{
+    width: 35%;
+}
+
+#ingredient-directions-container h4{
+    text-align: center;
+    font-size: 1.2em !important;
+}
+
+#directions-container{
+    width: 60%;
+}
