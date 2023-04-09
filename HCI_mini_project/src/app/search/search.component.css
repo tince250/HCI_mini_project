@@ -101,11 +101,22 @@ mat-label > img {
 }
 
 
+
+/* MAX I MIN FIELDS */
+
+#max-cal {
+    width: 35%;
+}
+
+#min-cal {
+    width: 35%;
+}
+
+
 /* INCLUDED INGR */
 
 .included-item {
     font-family: 'Poppins', sans-serif;
-    background-color: #83C5BE;
     padding: 0.2rem 0.2rem;
     align-self: center;
     align-items: center;
@@ -125,6 +136,16 @@ mat-label > img {
     margin-left: 0.5rem;
     padding-top: 0.3rem;
 }
+
+.background-green {
+    background-color: #83C5BE;
+}
+
+.background-red {
+    background-color: #E29578;
+}
+
+
 
 button {
     padding: 0.8rem 1.4rem;

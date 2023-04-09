@@ -10,6 +10,6 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 })
 export class SearchComponent {
 
-  included_ing: String[] = []
+  included_ing: String[] = ['s']
 
 }
