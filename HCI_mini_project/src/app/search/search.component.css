@@ -1,0 +1,180 @@
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+p {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+#main-container {
+    width: 100%;
+    height: fit-content;
+    /* border: 1px solid black; */
+    align-items: center;
+    background-color: white;
+}
+
+#title-text {
+    width: 30%;
+}
+
+#title-img {
+    height: 200px;
+}
+
+.title {
+    width: 80%;
+    align-items: center;
+}
+
+
+/* FORM */
+
+.form {
+    width: 80%;
+}
+form {
+    width: 100%;
+}
+
+
+/* FIELD TITLE AND LINE */
+
+.field-title {
+    width: 90%;
+    vertical-align: middle;
+    margin-top: 0.5rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.field-title > p {
+    align-self: left;
+    margin-right: auto;
+    width: fit-content;
+    color: #455A64;
+}
+
+.line {
+    height: 1px;
+    width: min-content;
+    flex-grow: 1;
+    background-color: #455A64;
+    border: none;
+    outline: none;
+    align-items: baseline;
+    margin-left: 0.5rem;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+/* FORM FIELD */
+mat-form-field {
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+.mat-mdc-form-field-subscript-wrapper {
+    height: 0;
+}
+
+mat-label {
+    align-items: center;
+    align-content: center;
+    vertical-align: middle;
+    align-self: center;
+    margin-bottom: auto;
+}
+
+mat-label > img {
+    height: 1rem;
+    margin: auto;
+    margin-right: 0.5rem;
+}
+
+
+
+/* MAX I MIN FIELDS */
+
+#max-cal {
+    width: 35%;
+}
+
+#min-cal {
+    width: 35%;
+}
+
+
+/* INCLUDED INGR */
+#included-container {
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+
+.included-item {
+    font-family: 'Poppins', sans-serif;
+    padding: 0.2rem 0.2rem;
+    align-self: center;
+    align-items: center;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    margin-right: 5px;
+}
+
+.included-item div {
+    color: white;
+}
+
+#img {
+    height: 100%;
+    display: flex;
+}
+
+.included-item  img {
+    margin-right: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 0.5rem;
+    padding-top: 0.3rem;
+}
+
+.background-green {
+    background-color: #83C5BE;
+}
+
+.background-red {
+    background-color: #E29578;
+}
+
+
+#btn {
+    width: 100%;
+    display: flex;
+}
+
+button {
+    padding: 0.8rem 1.4rem;
+    background-color: #006D77;
+    color: white;
+    border-radius: 12px;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+    margin: 0 auto;
+    align-self: center;
+    align-content: center;
+    align-items: center ;
+}
+
+.checkboxes {
+    width: 95%;
+    margin: 0 auto;
+}

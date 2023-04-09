@@ -1,0 +1,36 @@
+<div id="main_container">
+    <form fxLayout="row" [formGroup]="searchForm" #formDirective="ngForm">
+        <mat-form-field (keydown.enter)="search()" [hideRequiredMarker]="true"  id="search-bar">
+            <mat-label class="row">
+                <div>Recipe name...</div> <img src="../../assets/images/search-icon.svg"></mat-label>
+            <input matInput type="text" name="prep-time" formControlName="search_bar" />
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" id="cuisine-dd" [(ngModel)]="selected_cuisine">
+            <mat-label>Cuisine</mat-label>
+            <mat-select [(ngModel)]="selected_cuisine">
+              <mat-option *ngFor="let food of cuisine_dd" [value]="food" (onSelectionChange)="searchByCusine(food)">
+                {{food}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" id="cuisine-dd">
+            <mat-label>Meal type</mat-label>
+            <mat-select [(ngModel)]="selected_type">
+              <mat-option *ngFor="let food of type_dd" [value]="food" (onSelectionChange)="searchByType(food)">
+                {{food}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" id="cuisine-dd">
+            <mat-label>Diet</mat-label>
+            <mat-select [(ngModel)]="selected_diet">
+              <mat-option *ngFor="let food of diet_dd" [value]="food" (onSelectionChange)="searchByDiet(food)">
+                {{food}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+    </form>
+</div>

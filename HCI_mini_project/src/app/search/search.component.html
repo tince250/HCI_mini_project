@@ -1,0 +1,74 @@
+<div id="main-container" class="column">
+    <div class="title column">
+        <img id="title-img" src="../../assets/images/search-title.svg">
+        <img id="title-text" src="../../assets/images/Cookeasy-text.svg">
+    </div>
+    <div class="form" >
+        <form fxLayout="column" [formGroup]="searchForm" (ngSubmit)="search()" #formDirective="ngForm">
+            <div class="field-title row">
+                <p>Prep time</p>
+                <div class="line"></div>
+            </div>
+            <mat-form-field [hideRequiredMarker]="true"  id="prep_time">
+                <mat-label class="row"><img src="../../assets/images/clock.svg">
+                    <div>max prep time</div></mat-label>
+                <!-- <input type="number" matInput> -->
+                <input matInput type="number" name="prep_time" formControlName="prep_time" />
+                <mat-error *ngIf="searchForm.get('prep_time')?.errors?.['required']">Invalid duration in minutes.</mat-error>
+            </mat-form-field>
+
+            <div class="field-title row">
+                <p>Calories</p>
+                <div class="line"></div>
+            </div>
+            <div class="row">
+                <mat-form-field [hideRequiredMarker]="true"  id="max-cal">
+                    <mat-label>Max</mat-label>
+                    <input matInput type="number" name="max-cal" formControlName="max_cal" />
+                </mat-form-field>
+                <mat-form-field [hideRequiredMarker]="true"  id="min-cal">
+                    <mat-label>Min</mat-label>
+                    <input matInput type="number" name="name" formControlName="min_cal" />
+                </mat-form-field>
+            </div>
+
+            <div class="field-title row">
+                <p>Any 'frees' ?</p>
+                <div class="line"></div>
+            </div>
+            <div class="checkboxes row">
+                <mat-checkbox (click)="toggle_gluten()">Gluten free</mat-checkbox>
+                <mat-checkbox (click)="toggle_dairy()">Dairy free</mat-checkbox>
+            </div>
+
+            <div class="field-title row">
+                <p>Ingredients to include</p>
+                <div class="line"></div>
+            </div>
+            <mat-form-field [hideRequiredMarker]="true"  id="include-ing">
+                <input matInput type="text" name="include-ing" (keydown.enter)="add_included()" formControlName="include_ing" />
+            </mat-form-field>
+            <div id="included-container" *ngIf="included_ing.length != 0" class="row">
+                <div class="included-item row background-green" *ngFor="let item of included"><div>{{item}}</div><div id="img" (click)="remove_included(item)"><img src="../../assets/images/white-x.svg"></div></div>
+            </div>
+
+
+            <div class="field-title row">
+                <p>Ingredients to exclude</p>
+                <div class="line"></div>
+            </div>
+            <mat-form-field [hideRequiredMarker]="true"  id="exclued-ing">
+                <input matInput type="text" name="exclude-ing" (keydown.enter)="add_excluded()" formControlName="exclude_ing" />
+            </mat-form-field>
+            <div id="included-container" *ngIf="included_ing.length != 0" class="row">
+                <div class="included-item row background-red" *ngFor="let item of excluded; let i = index"><div>{{item}}</div><div id="img" (click)="remove_excluded(item)"><img src="../../assets/images/white-x.svg"></div></div>
+            </div>
+            
+            <div id="btn">
+                <button type="submit">Search</button>
+            </div>
+
+        </form>
+    </div>
+
+</div>
