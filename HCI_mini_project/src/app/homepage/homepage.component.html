@@ -1,15 +1,28 @@
 <p>homepage works!</p>
-<div class="recipe-card basic-container">
-    <img class="recipe-card-image" src="../../assets/images/pica.jpeg" alt="">
-    <div class="recipe-card-text">
-        <p class="recipe-card-title green">Pizza Margarita</p>
-        <div class="recipe-stat">
-            <i class="fa fa-clock-o"></i>
-            <p>35 min</p>
-        </div>
-        <div class="recipe-stat">
-            <i class="fa-solid fa-user-group"></i>
-            <p>3</p>
+
+<div id="paginated-cards-container">
+    <div id="card-container">
+        <div class="recipe-card basic-container" *ngFor="let recipe of recipesSlice">
+            <img class="recipe-card-image" src="../../assets/images/pica.jpeg" alt="">
+            <div class="recipe-card-text">
+                <p class="recipe-card-title green">Pizza Margarita</p>
+                <div class="recipe-stat">
+                    <i class="fa-sharp fa-solid fa-clock"></i>
+                    <p class="recipe-prep-time">35 min</p>
+                </div>
+                <div class="recipe-stat">
+                    <i class="fa-solid fa-user-group"></i>
+                    <p class="recipe-no-servings">3</p>
+                </div>
+            </div>
         </div>
     </div>
+    
+    
+    <mat-paginator [length]="this.allFetchedRecipes.length"
+                  [pageSize]="6"
+                  [pageSizeOptions]="[6, 9, 12]"
+                  (page)="handlePageEvent($event)"
+                  aria-label="Select page">
+    </mat-paginator>
 </div>
