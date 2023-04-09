@@ -21,3 +21,18 @@
     align-items: center;
     font-family: 'Poppins', sans-serif;
 }
+
+#go-back-text i {
+    margin-right: 5px;
+}
+
+.conf-button{
+    background-color: #D9D9D9;
+    color: white !important;
+    font-weight: 400 !important;
+    font-size: 0.9em;
+    padding: 0px 20px !important;
+    border-radius: 5px;
+    font-family: 'Poppins';
+    font-weight: 700 !important;
+}
