@@ -16,6 +16,11 @@ export class RecipesService {
 
     public number: number = 8;
     public offset: number = 0;
+    public currTitle: String = '';
+    public currCusine: String = '';
+    public currType: String = '';
+    public currDiet: String = '';
+    public lastUrl: string = '';
 
     constructor(private http: HttpClient) {}
 
@@ -31,17 +36,24 @@ export class RecipesService {
         let url = environment.search;
         if (title != '') 
             url = url + '&titleMatch=' + title;
+            this.currTitle = title;
         if (cusine != '')
             url = url + '&cuisine=' + cusine;
+            this.currCusine = cusine;
         if (type != '')
             url = url + '&type=' + type;
+            this.currType = type;
         if (diet != '')
             url = url + '&diet=' + diet;
+            this.currDiet = diet;
+
+        this.lastUrl = url;
         return this.http.get<AllRecipesDTO>(url + '&offset=' + this.offset + '&number=' + this.number);
     }
 
     filter(form: FormGroup, gluten: boolean, dairy: boolean, included: String[], excluded: String[]) : Observable<any> {
         let url = environment.search;
+        if (this.lastUrl != '') {url = this.lastUrl;}
         if (form.value.prep_time != 0) 
             url = url + '&maxReadyTime=' + form.value.prep_time;
         if (form.value.max_cal != 0)
@@ -59,6 +71,14 @@ export class RecipesService {
 
         return this.http.get<AllRecipesDTO>(url + '&offset=' + this.offset + '&number=' + this.number);
     }
+
+
+    recreateLastReq() : void {
+        if (this.lastUrl != '')
+            this.setFetchedRecipes(this.http.get<AllRecipesDTO>(this.lastUrl))
+    }
+
+
 
 
     getByName(title: string) : Observable<AllRecipesDTO> {
