@@ -37,8 +37,8 @@
                 <div class="line"></div>
             </div>
             <div class="checkboxes row">
-                <mat-checkbox (click)="toggle_gluten()">Gluten free</mat-checkbox>
-                <mat-checkbox (click)="toggle_dairy()">Dairy free</mat-checkbox>
+                <mat-checkbox (click)="toggle_gluten()">gluten free</mat-checkbox>
+                <mat-checkbox (click)="toggle_dairy()"  class="dairy-checkbox">dairy free</mat-checkbox>
             </div>
 
             <div class="field-title row">
@@ -49,7 +49,7 @@
                 <input matInput type="text" name="include-ing" (keydown.enter)="add_included()" formControlName="include_ing" />
             </mat-form-field>
             <div id="included-container" *ngIf="included_ing.length != 0" class="row">
-                <div class="included-item row background-green" *ngFor="let item of included"><div>{{item}}</div><div id="img" (click)="remove_included(item)"><img src="../../assets/images/white-x.svg"></div></div>
+                <div class="included-item row background-green" *ngFor="let item of included"><div>{{item}}</div><div id="img" (click)="remove_included(item)"><i class="fa-solid fa-plus remove-ingredient"></i></div></div>
             </div>
 
 
@@ -61,7 +61,7 @@
                 <input matInput type="text" name="exclude-ing" (keydown.enter)="add_excluded()" formControlName="exclude_ing" />
             </mat-form-field>
             <div id="included-container" *ngIf="included_ing.length != 0" class="row">
-                <div class="included-item row background-red" *ngFor="let item of excluded; let i = index"><div>{{item}}</div><div id="img" (click)="remove_excluded(item)"><img src="../../assets/images/white-x.svg"></div></div>
+                <div class="included-item row background-red" *ngFor="let item of excluded; let i = index"><div>{{item}}</div><div id="img" (click)="remove_excluded(item)"><i class="fa-solid fa-plus remove-ingredient"></i></div></div>
             </div>
             
             <div id="btn">
