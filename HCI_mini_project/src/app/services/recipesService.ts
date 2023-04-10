@@ -3,6 +3,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { environment } from 'src/environments/environment';
+import { FormGroup } from '@angular/forms';
 
 @Injectable({
     providedIn: 'root',
@@ -36,7 +37,26 @@ export class RecipesService {
             url = url + '&type=' + type;
         if (diet != '')
             url = url + '&diet=' + diet;
-        console.log(url)
+        return this.http.get<AllRecipesDTO>(url + '&offset=' + this.offset + '&number=' + this.number);
+    }
+
+    filter(form: FormGroup, gluten: boolean, dairy: boolean, included: String[], excluded: String[]) : Observable<any> {
+        let url = environment.search;
+        if (form.value.prep_time != 0) 
+            url = url + '&maxReadyTime=' + form.value.prep_time;
+        if (form.value.max_cal != 0)
+            url = url + '&maxCalories=' + form.value.max_cal
+        if (form.value.min_cal != 0)
+            url = url + '&minCalories=' + form.value.min_cal
+        if (gluten)
+            url = url + '&diet=' + 'Gluten Free'
+        if (dairy) 
+            url = url + '&intolerances=' + 'dairy'
+        if (included.length != 0)
+            url = url + '&includeIngredients=' + included.join()
+        if (excluded.length != 0)
+            url = url + '&excludeIngredients=' + excluded.join()
+
         return this.http.get<AllRecipesDTO>(url + '&offset=' + this.offset + '&number=' + this.number);
     }
 
