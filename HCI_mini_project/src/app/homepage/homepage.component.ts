@@ -32,7 +32,7 @@ export class HomepageComponent implements OnInit {
   }
 
   openRecipeDetails(id: number) {
-    this.recipesService.getById(324694).subscribe({
+    this.recipesService.getById(716429).subscribe({
       next: (res) => {
         this.recipesService.chosenRecipe = res;
         console.log(res.id);

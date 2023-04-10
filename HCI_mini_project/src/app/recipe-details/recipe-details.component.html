@@ -87,3 +87,36 @@
         
     </div>
 </div> 
+
+<!-- <div *ngIf="recipe.winePairing.pairedWines.length == 0" class="border wines-shadow" id="no-wines-container">
+    <span class="red-orange">Unfortunately, there are no pairing wines with this recipe!</span>
+</div> -->
+
+<!-- <div *ngIf="recipe.winePairing.pairedWines.length != 0" class="border wines-shadow" id="wines-container"> -->
+<div class="border wines-shadow" id="wines-container">
+    <div id="all-wines-container">
+        <h4 class="green">Care for a cup of Wine with your meal?</h4>
+        <span>This dish always goes well with:</span>
+        <div id="all-wines-bullets-container" *ngFor="let wine of recipe.winePairing.pairedWines; let indexOfelement =index">
+            <div *ngIf="indexOfelement < 3" class="ingredient-bullet">
+                <i class="fa-solid fa-circle"></i>
+                <span> {{ wine.toUpperCase() }} </span>
+            </div>
+        </div>
+
+        <span>{{ recipe.winePairing.pairingText }}</span>
+    </div>
+    <div id="recommended-wine-container">
+        <span>our recommendation:</span>
+        <div id="recommended-wine-name" class="back-green">
+            {{ recipe.productMatches[0].title }}
+        </div>
+        <div style="padding: 15px;">
+            <a [href]="recipe.productMatches[0].link">
+                <img [src]="recipe.productMatches[0].imageUrl" class="circle-img">
+            </a>
+            
+        </div>
+        <span>{{ recipe.productMatches[0].description }}</span>
+    </div>
+</div>

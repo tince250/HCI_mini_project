@@ -185,7 +185,7 @@ flex-direction: column;
     margin-right: 8px;
 }
 
-.ingredient-bullet span, .direction-bullet span {
+.ingredient-bullet span, .direction-bullet span, #all-wines-container span, #recommended-wine-container > span{
     color: #455A64;
     word-wrap: break-word;
 }
@@ -262,6 +262,81 @@ flex-direction: column;
 
 .weight-700{
     font-weight: 700;
+}
+
+#all-wines-container {
+    width: 60%;
+    margin: 0 10px 0 20px;
+    padding: 5px 10px;
+    display: grid;
+    grid-template-rows: 0.8fr 0.8fr 2fr 1fr;
+}
+
+#all-wines-container h4{
+    font-family: 'Poppins';
+    font-weight: 600;
+    /* text-align: center; */
+}
+
+#all-wines-bullets-container {
+    padding: 0 20px;
+}
+
+#no-wines-container{
+    display: flex; width: 60%; margin: 20px auto; border-radius: 10px 10px 0 0; height: fit-content; text-align: center;
+}
+
+.wines-shadow{
+    box-shadow: 0 -3px 3px 0px #B9BBBD;
+}
+
+#no-wines-container span{
+    font-family: 'Poppins';
+    padding: 15px;
+    font-weight: 600;
+}
+
+#wines-container {
+    display: flex; width: 60%; margin: 20px auto; border-radius: 10px 10px 0 0; min-height: 300px;
+}
+
+#recommended-wine-container {
+    width: 40%;
+    border-radius: 10px;
+    padding-top: 15px;
+    background-color: #D9D9D9;
+    text-align: center;
+}
+
+#recommended-wine-container span{
+    color: #455A64;
+    font-size: 0.9em;
+}
+
+#recommended-wine-name {
+    padding: 4px 10px;
+    color: white;
+    font-family: 'Poppins';
+    font-weight: 600;
+    background-color: aqua;
+    width: fit-content;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+.circle-img {
+    border-radius: 50%;
+    width: 175px;
+    height: 175px;
+    object-fit: cover;
+}
+
+#wine-price-circle {
+    margin-left: -30px;
+    margin-right: 10px;
+    margin-top: -5px;
+    border-radius: 50%;
+    background-color: #006D77;
 }
 
 @media screen and (max-width: 1200px) {
