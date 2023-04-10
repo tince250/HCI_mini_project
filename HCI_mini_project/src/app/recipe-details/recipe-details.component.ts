@@ -13,14 +13,20 @@ export class RecipeDetailsComponent implements OnInit, AfterViewInit {
   ingredientScrollableDiv: ElementRef;
   isIngredientScrollNeedable: boolean = false;
 
+  @ViewChild('directionScrollable')
+  directionScrollableDiv: ElementRef;
+  isDirectionScrollNeedable: boolean = false;
+
   recipe: any;
-  url: any = "https://spoonacular.com/recipeImages/716429-556x370.jpg";
   constructor(private ref: ChangeDetectorRef, private recipesService: RecipesService){
 
   }
   ngAfterViewInit(): void {
     if (this.ingredientScrollableDiv.nativeElement.clientHeight > this.ingredientScrollableDiv.nativeElement.scrollHeight){
       this.isIngredientScrollNeedable = true;
+    }
+    if (this.directionScrollableDiv.nativeElement.clientHeight > this.directionScrollableDiv.nativeElement.scrollHeight){
+      this.isDirectionScrollNeedable = true;
     }
     this.ref.detectChanges();
   }

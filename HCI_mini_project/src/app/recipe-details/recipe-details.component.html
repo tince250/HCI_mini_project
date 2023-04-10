@@ -22,11 +22,11 @@
                 </div>
             </div>
         </div>
-        <div class="summary-container">
+        <!-- <div class="summary-container">
             <span>
                 {{ recipe.summary.split('.')[0] }}
             </span>
-        </div>
+        </div> -->
         <div id="ingredient-directions-container">
             <div id="ingredient-container">
                     <!-- <h4 class="green">
@@ -48,24 +48,28 @@
                 <img *ngIf="!isIngredientScrollNeedable" src="../assets/images/scroll.svg">
             </div>
             <div id="id-line"></div>
-            <div id="directions-container">
+            <div *ngIf="recipe.instructions != ''" id="directions-container">
                 <h4 class="green">Directions</h4>
-                <div id="all-directions-bullets-container">
-                    <div class="direction-bullet">
-                        <div class="square-bullet">3.</div>
-                        <span>1 tbsp of bullet</span>
+                <div class="aibcp">
+                    <div class="aibcf">
+                    <div id="all-directions-bullets-container" #directionScrollable *ngFor="let instruction of recipe.analyzedInstructions[0].steps; let indexOfelement =index">
+                        <div class="direction-bullet">
+                            <div class="square-bullet">{{ instruction.number }}.</div>
+                            <span>{{ instruction.step }}</span>
+                        </div>
                     </div>
-                    <div class="direction-bullet">
-                        <div class="square-bullet">3.</div>
-                        <span>1 tbsp of bullet</span>
-                    </div>
-
-                    <div class="direction-bullet">
-                        <div class="square-bullet">3.</div>
-                        <span>1 tbsp ooo crno beli volimo vas volimo vas volimooo</span>
                     </div>
                 </div>
+                <img *ngIf="!isDirectionScrollNeedable" src="../assets/images/scroll.svg">
             </div>
+            <!-- <div *ngIf="recipe.instructions == ''" id="directions-container"> -->
+            <div *ngIf="recipe.instructions == ''" id="no-instructions-container">
+                <h4 class="green">Directions</h4>
+                <div id="nit-container">
+                    <span>Unfortunately the directions for this recipe are not available atm</span>
+                </div>
+            </div>
+              
         </div>
     </div>
 </div>
