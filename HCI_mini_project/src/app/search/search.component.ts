@@ -132,10 +132,12 @@ export class SearchComponent implements OnInit {
 
   remove_included(name: String): void {
     this.included = this.included.filter(item => item != name);
+    this.search();
   }
 
   remove_excluded(name: String): void {
     this.excluded = this.excluded.filter(item => item != name);
+    this.search();
   }
 
   clear_lists(): void {
