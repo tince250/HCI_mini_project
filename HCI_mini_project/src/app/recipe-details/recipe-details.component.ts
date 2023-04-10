@@ -16,6 +16,8 @@ export class RecipeDetailsComponent implements OnInit, AfterViewInit {
   @ViewChild('directionScrollable')
   directionScrollableDiv: ElementRef;
   isDirectionScrollNeedable: boolean = false;
+  firstOption: boolean = true;
+  responsiveOptions: boolean = false;
 
   recipe: any;
   constructor(private ref: ChangeDetectorRef, private recipesService: RecipesService){
@@ -28,6 +30,20 @@ export class RecipeDetailsComponent implements OnInit, AfterViewInit {
     if (this.directionScrollableDiv.nativeElement.clientHeight > this.directionScrollableDiv.nativeElement.scrollHeight){
       this.isDirectionScrollNeedable = true;
     }
+    this.ref.detectChanges();
+  }
+
+  clickedSecond(){
+    this.firstOption = false;
+    if (!this.responsiveOptions)
+      this.responsiveOptions = true;
+    this.ref.detectChanges();
+  }
+
+  clickedFirst(){
+    this.firstOption = true;
+    if (!this.responsiveOptions)
+      this.responsiveOptions = true;
     this.ref.detectChanges();
   }
 

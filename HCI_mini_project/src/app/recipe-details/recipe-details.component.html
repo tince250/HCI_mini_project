@@ -17,10 +17,13 @@
                     <span>Number of servings: <span class="orange">{{ recipe.servings }}</span></span>
                 </div>
                 <div>
-                    <i class="fa-solid fa-fire"></i>
-                    <span>Total calories: <span class="orange">1350</span></span>
+                    <i class="fa-solid fa-sack-dollar"></i>
+                    <span>Price per serving: <span class="orange">{{ recipe.pricePerServing }}</span></span>
                 </div>
             </div>
+        </div>
+        <div style="border-radius: 0px 0px 10px 10px; height: 30px; background-color: #D9D9D9;">
+
         </div>
         <div id="all-flags-container">
             <div *ngIf="recipe.vegetarian" class="flag-container back-green">
@@ -40,13 +43,12 @@
         </div> -->
     </div>
     <div id="ingredient-directions-container">
-        <div id="ingredient-container">
-                <!-- <h4 class="green">
-                    <img src="../assets/images/scroll.svg">
-                    Ingredients</h4> -->
-            <h4 class="green">Ingredients</h4>
-            <!-- *ngIf="!isIngredientScrollNeedable" -->
-            
+        <div id="two-options-container">
+            <button (click)="clickedFirst()" mat-button [ngClass]="firstOption == true ? 'green option-container weight-700' : 'gray option-container'">Ingredients</button>
+            <button (click)="clickedSecond()" mat-button [ngClass]="firstOption == false ? 'green option-container weight-700' : 'gray option-container'">Directions</button>
+        </div>
+        <div id="ingredient-container" *ngIf="firstOption">
+            <h4 class="green">Ingredients</h4>            
             <div class="aibcp">
                 <div class="aibcf">
                 <div id="all-ingredient-bullets-container" #ingredientScrollable *ngFor="let ingredient of recipe.extendedIngredients; let indexOfelement =index">
@@ -57,10 +59,10 @@
                 </div>
                 </div>
             </div>
-            <img *ngIf="!isIngredientScrollNeedable" src="../assets/images/scroll.svg">
+            <img class="scroll-img" *ngIf="!isIngredientScrollNeedable" src="../assets/images/scroll.svg">
         </div>
         <div id="id-line"></div>
-        <div *ngIf="recipe.instructions != ''" id="directions-container">
+        <div *ngIf="recipe.instructions != '' && (!firstOption || !responsiveOptions)" [ngClass]="!firstOption ? '' : 'no-display' " id="directions-container">
             <h4 class="green">Directions</h4>
             <div class="aibcp">
                 <div class="aibcf">
@@ -72,15 +74,16 @@
                 </div>
                 </div>
             </div>
-            <img *ngIf="!isDirectionScrollNeedable" src="../assets/images/scroll.svg">
+            <img class="scroll-img" *ngIf="!isDirectionScrollNeedable" src="../assets/images/scroll.svg">
         </div>
         <!-- <div *ngIf="recipe.instructions == ''" id="directions-container"> -->
-        <div *ngIf="recipe.instructions == ''" id="no-instructions-container">
+        <div *ngIf="recipe.instructions == '' && (!firstOption || !responsiveOptions)" [ngClass]="!firstOption ? '' : 'no-display' "  id="no-instructions-container">
             <h4 class="green">Directions</h4>
             <div id="nit-container">
                 <span>Unfortunately the directions for this recipe are not available atm</span>
             </div>
         </div>
             
+        
     </div>
 </div> 
