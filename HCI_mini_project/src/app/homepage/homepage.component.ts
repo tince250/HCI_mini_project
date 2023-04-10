@@ -2,7 +2,8 @@ import { RecipesService } from './../services/recipesService';
 import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { Router } from '@angular/router';
-import { of } from 'rxjs';
+import { MediaMatcher } from '@angular/cdk/layout';
+
 
 @Component({
   selector: 'app-homepage',
@@ -20,11 +21,28 @@ export class HomepageComponent implements OnInit {
   start_page = 0;
   end_page = 2;
 
-  constructor(private recipesService: RecipesService, private router: Router) {
-    
-   }
+  smallerDesktop: MediaQueryList;
+  smallerDesktopFour: MediaQueryList;
+  biggerDesktop: MediaQueryList;
+
+  scrollable = false;
+
+  constructor(private recipesService: RecipesService, private router: Router, private mediaMatcher: MediaMatcher) {
+    this.biggerDesktop = mediaMatcher.matchMedia('(min-width: 1450px)');
+    this.smallerDesktop = mediaMatcher.matchMedia('(min-width: 1160px) and (max-width: 1450px)');
+    this.smallerDesktopFour = mediaMatcher.matchMedia('(min-width: 1100px) and (max-width: 1160px)');
+  }
 
   ngOnInit(): void {
+
+      // Set initial page size based on screen size
+    this.setPageSize();
+
+    // Subscribe to media query changes
+    this.smallerDesktop.addEventListener('change', this.setPageSize);
+    this.biggerDesktop.addEventListener('change', this.setPageSize);
+    this.smallerDesktopFour.addEventListener('change', this.setPageSize);
+
     this.recipesService.getFetchedRecipes().subscribe((res) => {
       console.log(res);
       if (res != null) {
@@ -50,6 +68,31 @@ export class HomepageComponent implements OnInit {
       
       console.log(this.recipesSlice);
     });
+  }
+
+  ngOnDestroy() {
+    this.smallerDesktop.removeEventListener('change', this.setPageSize);
+  }
+
+  setPageSize = () => {
+    console.log(this.smallerDesktop.matches)
+    this.scrollable = false;
+    if (this.biggerDesktop.matches) {
+      this.pageSize = 8
+    } else {
+      if (this.smallerDesktop.matches) {
+        this.pageSize = 6;
+      } else {
+        if (this.smallerDesktopFour.matches) {
+          this.pageSize = 8;
+        } else {
+          this.pageSize = 6;
+          this.scrollable = true;
+        }
+      }
+    }
+    
+    this.updateData();
   }
 
   handlePageEvent(event: PageEvent) {
@@ -91,6 +134,14 @@ export class HomepageComponent implements OnInit {
     console.log(startIndex + " " + endIndex);
     this.recipesSlice = this.allFetchedRecipes.slice(startIndex, endIndex);
     console.log(this.recipesSlice)
+
+    if (this.scrollable) {
+      window.scroll({ 
+        top: 0, 
+        left: 0, 
+        behavior: 'smooth' 
+      });
+    }
   }
 
   openRecipeDetails(id: number) {

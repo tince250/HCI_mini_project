@@ -7,7 +7,7 @@
         </mat-form-field>
 
         <div>
-          <mat-form-field appearance="fill" id="cuisine-dd">
+          <mat-form-field id="cuisine-dd">
               <mat-label>Cuisine</mat-label>
               <mat-select >
                 <mat-option *ngFor="let item of cuisine_dd" [value]="item" (onSelectionChange)="searchByCusine(item)">
@@ -16,7 +16,7 @@
               </mat-select>
             </mat-form-field>
 
-            <mat-form-field appearance="fill" id="cuisine-dd">
+            <mat-form-field  id="cuisine-dd">
               <mat-label>Meal type</mat-label>
               <mat-select>
                 <mat-option *ngFor="let item of type_dd" [value]="item" (onSelectionChange)="searchByType(item)">
@@ -25,7 +25,7 @@
               </mat-select>
             </mat-form-field>
 
-            <mat-form-field appearance="fill" id="cuisine-dd">
+            <mat-form-field id="cuisine-dd">
               <mat-label>Diet</mat-label>
               <mat-select>
                 <mat-option *ngFor="let item of diet_dd" [value]="item" (onSelectionChange)="searchByDiet(item)">

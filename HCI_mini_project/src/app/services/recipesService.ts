@@ -24,6 +24,9 @@ export class RecipesService {
 
     public lastQuery: string = "";
 
+    public numberScroll = 24;
+    public offsetScroll = 0;
+
     constructor(private http: HttpClient) {}
 
     setFetchedRecipes(recipes: any) {
@@ -36,6 +39,10 @@ export class RecipesService {
 
     repeatQuery() : Observable<any> {
         return this.http.get<AllRecipesDTO>(this.lastQuery + '&offset=' + this.offset*this.number + '&number=' + this.number*3);
+    }
+
+    repeatQueryScroll() : Observable<any> {
+        return this.http.get<AllRecipesDTO>(this.lastQuery + '&offset=' + this.offsetScroll*this.numberScroll + '&number=' + this.numberScroll);
     }
 
     search(title: string, cusine: String, type:String, diet:String) : Observable<any> {

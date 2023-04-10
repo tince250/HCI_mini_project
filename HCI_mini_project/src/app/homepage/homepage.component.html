@@ -19,9 +19,10 @@
     
     <mat-paginator [length]="this.totalResults"
                   [pageSize]="this.pageSize"
-                  [pageSizeOptions]="[8, 12]"
+                  [pageSizeOptions]="[6, 8, 12]"
                   [hidePageSize] = true
                   (page)="handlePageEvent($event)"
                   aria-label="Select page">
     </mat-paginator>
 </div>
+

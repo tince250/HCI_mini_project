@@ -46,8 +46,8 @@ p {
 
 #title-img {
     height: 160px;
-    /* height: 200px;
-    margin: 0 auto; */
+    /* height: 200px; */
+    margin: 0 auto; 
 }
 
 #x {
@@ -276,7 +276,7 @@ button:hover {
     display: none;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1160px) {
     #dropdown-form {
         display: block;
     }

@@ -86,7 +86,7 @@ mat-label div {
         margin-left: 0;
     }
 }
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1160px) {
     #cuisine-dd {
         display: none;
     }
