@@ -3,8 +3,9 @@ import { FormControl, FormGroup, Validators, FormGroupDirective, NgForm } from '
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { prepTimeValidator } from '../validators/searchValidators';
+import { numberRegexValidator, prepTimeValidator } from '../validators/searchValidators';
 import { RecipesService } from '../services/recipesService';
+import { minMaxValidator } from '../validators/minMaxValidators';
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html', 
@@ -67,17 +68,15 @@ export class SearchComponent implements OnInit {
   diet_dd: String[] = ['All', 'Gluten Free', 'Ketogenic', 'Vegetarian', 'Lacto-Vegetarian', 'Ovo-Vegetarian', 'Vegan', 'Pescetarian', 'Paleo', 'Primal', 'Low FODMAP', 'Whole30']
 
 
-
-
-
   included_ing: String[] = ['s']
   searchForm = new FormGroup({
-    prep_time: new FormControl(''),
-    max_cal: new FormControl(''),
-    min_cal: new FormControl(''),
+    prep_time: new FormControl('', numberRegexValidator),
+    max_cal: new FormControl('', numberRegexValidator),
+    min_cal: new FormControl('', numberRegexValidator),
     include_ing: new FormControl(''),
     exclude_ing: new FormControl(''),
   }, [])
+  // }, [minMaxValidator("min_cal", "max_cal")])
 
   
 
@@ -87,6 +86,10 @@ export class SearchComponent implements OnInit {
   excluded: String[] = []
   
   search() : void {
+    if (!this.searchForm.valid){
+      console.log("greska");
+      return;
+    }
     this.service.filter(this.searchForm, this.gluten_checked, this.dairy_checked, this.included, this.excluded, this.selected_cuisine, this.selected_type, this.selected_diet).subscribe({
       next: (res: any) => {
         console.log(res)

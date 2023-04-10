@@ -8,3 +8,11 @@ import { ErrorStateMatcher } from '@angular/material/core'
     }
     return null;
   }
+
+  export function numberRegexValidator( control: AbstractControl): { [key: string]: boolean } | null {
+    const regex = /^[0-9]*$/;
+    if (control.value !== undefined && !regex.test(control.value) && control.dirty) {
+        return { numberRegexError: true };
+    }
+    return null;
+  }
