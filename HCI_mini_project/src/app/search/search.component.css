@@ -23,6 +23,10 @@ p {
     overflow-y: scroll;
 }
 
+.title > div {
+    width: 100%;
+}
+
 #title-text {
     width: 30%;
     margin-top: -20px;
@@ -188,6 +192,7 @@ mat-label > img {
 #btn {
     width: 100%;
     display: flex;
+    margin-bottom: 20px;
 }
 
 button {
@@ -202,6 +207,10 @@ button {
     align-self: center;
     align-content: center;
     align-items: center ;
+}
+
+button:hover {
+    cursor: pointer;
 }
 
 .checkboxes {

@@ -12,7 +12,7 @@
         <form fxLayout="column" #formDirective="ngForm" id="dropdown-form">
             <mat-form-field appearance="fill" id="cuisine-dd">
                 <mat-label>Cuisine</mat-label>
-                <mat-select >
+                <mat-select>
                   <mat-option *ngFor="let item of cuisine_dd" [value]="item" (onSelectionChange)="searchByCusine(item)">
                     {{item}}
                   </mat-option>

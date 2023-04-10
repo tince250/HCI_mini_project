@@ -72,7 +72,7 @@ export class SearchComponent implements OnInit {
 
   included_ing: String[] = ['s']
   searchForm = new FormGroup({
-    prep_time: new FormControl('', [Validators.required, prepTimeValidator]),
+    prep_time: new FormControl(''),
     max_cal: new FormControl(''),
     min_cal: new FormControl(''),
     include_ing: new FormControl(''),
