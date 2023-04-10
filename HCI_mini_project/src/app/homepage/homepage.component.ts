@@ -10,14 +10,42 @@ import { Router } from '@angular/router';
 })
 export class HomepageComponent implements OnInit {
 
-  allFetchedRecipes = [{name: "Pizza Margarita", id: 1}, {name: "Pizza Margarita", id: 1}, {name: "Pizza Margarita", id: 1}, {name: "Pizza Margarita", id: 1}, {name: "Pizza Margarita", id: 1}, {name: "Pizza Margarita", id: 1}, {name: "Pizza Margarita", id: 1}, {name: "Pizza Margarita", id: 1}, {name: "Pizza Margarita", id: 1}, {name: "Pizza Margarita", id: 1}];
+  allFetchedRecipes = [];
   offset = 0;
   pageSize= 8;
-  recipesSlice = this.allFetchedRecipes.slice(this.offset, this.pageSize);
+  totalResults = 0;
+  recipesSlice: any;
 
-  constructor(private recipesService: RecipesService, private router: Router) { }
+  constructor(private recipesService: RecipesService, private router: Router) {
+    
+   }
 
   ngOnInit(): void {
+    this.recipesService.getFetchedRecipes().subscribe((res) => {
+      console.log(res);
+      if (res != null) {
+        this.allFetchedRecipes = res.results;
+        this.offset = res.offset;
+        this.totalResults = res.totalResults;
+        this.recipesSlice = this.allFetchedRecipes.slice(this.offset, this.pageSize);
+      } 
+      else {
+        // this.recipesService.getRandomRecipes(this.pageSize).subscribe({
+        //   next: (res) => {
+        //     this.allFetchedRecipes = res.recipes;
+        //     this.totalResults = res.recipes.length;
+        //     this.recipesSlice = this.allFetchedRecipes.slice(this.offset, this.pageSize);
+        //     console.log(this.recipesSlice);
+        //   }, 
+        //   error: (err) => {
+        //     console.log(err);
+        //   },
+        // });
+      }
+
+      
+      console.log(this.recipesSlice);
+    });
   }
 
   handlePageEvent(event: PageEvent) {
@@ -29,6 +57,7 @@ export class HomepageComponent implements OnInit {
       endIndex = this.allFetchedRecipes.length;
     }
     this.recipesSlice = this.allFetchedRecipes.slice(startIndex, endIndex);
+    
   }
 
   openRecipeDetails(id: number) {

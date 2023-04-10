@@ -1,5 +1,5 @@
 
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { environment } from 'src/environments/environment';
@@ -9,12 +9,26 @@ import { environment } from 'src/environments/environment';
   })
 export class RecipesService {
 
+    private fetchedRecipes = new BehaviorSubject(null);
+
     public chosenRecipe: any;
 
     constructor(private http: HttpClient) {}
 
+    setFetchedRecipes(recipes: any) {
+        this.fetchedRecipes.next(recipes);
+    }
+
+    getFetchedRecipes(): Observable<any> {
+        return this.fetchedRecipes.asObservable();
+    }
+
     getByName(title: string) : Observable<AllRecipesDTO> {
-        return this.http.get<AllRecipesDTO>(environment.search + "&titleMatch=" + title);
+        return this.http.get<AllRecipesDTO>(environment.search + "&titleMatch=" + title + "&addRecipeInformation=true");
+    }
+
+    getByNameAmount(title: string, amount:number) : Observable<AllRecipesDTO> {
+        return this.http.get<AllRecipesDTO>(environment.search + "&titleMatch=" + title + "&number=" + amount);
     }
 
     getByCusine(cuisine: String) : Observable<AllRecipesDTO> {
@@ -30,7 +44,12 @@ export class RecipesService {
     }
 
     getById(id: number) : Observable<any> {
-        return this.http.get<any>(environment.apiHost + id + "/information?includeNutrition=true&apiKey=" + environment.apiKey)
+        return this.http.get<any>(environment.apiHost + id + "/information?includeNutrition=true&apiKey=" + environment.apiKey);
+    }
+
+    getRandomRecipes(amount: number) : Observable<any> {
+        // https://api.spoonacular.com/recipes/random?number=1&tags=vegetarian,dessert
+        return this.http.get<any>(environment.apiHost + "/random?number=" + amount + "&apiKey=" + environment.apiKey);
     }
 }
 

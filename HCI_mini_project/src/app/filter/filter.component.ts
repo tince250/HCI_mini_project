@@ -68,6 +68,7 @@ export class FilterComponent implements OnInit {
   search() : void {
     this.service.getByName(this.searchForm.value.search_bar!).subscribe((res) => {
       console.log(res)
+      this.service.setFetchedRecipes(res);
     })
   }
 

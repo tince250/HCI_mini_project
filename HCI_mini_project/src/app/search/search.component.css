@@ -20,6 +20,7 @@ p {
     align-items: center;
     background-color: white;
     color: #B9BBBD !important;
+    overflow-y: scroll;
 }
 
 #title-text {
