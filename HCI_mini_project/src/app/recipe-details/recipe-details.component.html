@@ -80,7 +80,7 @@
         <div *ngIf="recipe.instructions == '' && (!firstOption || !responsiveOptions)" [ngClass]="!firstOption ? '' : 'no-display' "  id="no-instructions-container">
             <h4 class="green">Directions</h4>
             <div id="nit-container">
-                <span>Unfortunately the directions for this recipe are not available atm</span>
+                <span>Unfortunately, the directions for this recipe are not available at the moment!</span>
             </div>
         </div>
             
@@ -88,12 +88,11 @@
     </div>
 </div> 
 
-<!-- <div *ngIf="recipe.winePairing.pairedWines.length == 0" class="border wines-shadow" id="no-wines-container">
+<div *ngIf="recipe.winePairing.pairedWines.length == 0" class="border wines-shadow" id="no-wines-container">
     <span class="red-orange">Unfortunately, there are no pairing wines with this recipe!</span>
-</div> -->
+</div>
 
-<!-- <div *ngIf="recipe.winePairing.pairedWines.length != 0" class="border wines-shadow" id="wines-container"> -->
-<div class="border wines-shadow" id="wines-container">
+<div *ngIf="recipe.winePairing.pairedWines.length != 0" class="border wines-shadow" id="wines-container">
     <div id="all-wines-container">
         <h4 class="green">Care for a cup of Wine with your meal?</h4>
         <span>This dish always goes well with:</span>
