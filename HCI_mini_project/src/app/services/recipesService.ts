@@ -110,7 +110,7 @@ export class RecipesService {
         if (excluded.length != 0)
             url = url + '&excludeIngredients=' + excluded.join()
 
-        return this.http.get<AllRecipesDTO>(url + '&offset=' + this.offset*this.number + '&number=' + this.number);
+        return this.http.get<AllRecipesDTO>(url + '&offset=' + this.offset*this.number + '&number=' + this.number + "&addRecipeInformation=true");
         // this.lastUrl = url + '&offset=' + this.offset + '&number=' + this.number;
         // return this.http.get<AllRecipesDTO>(this.lastUrl);
     }
