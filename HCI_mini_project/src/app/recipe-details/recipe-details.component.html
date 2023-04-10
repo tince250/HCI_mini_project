@@ -22,8 +22,22 @@
                 </div>
             </div>
         </div>
-        <div class="summary-container">
+        <div id="all-flags-container">
+            <div *ngIf="recipe.vegetarian" class="flag-container back-green">
+                vegeterian
+            </div>
+            <div *ngIf="!recipe.vegetarian && recipe.vegan" class="flag-container back-green">
+                vegan
+            </div>
+            <div *ngIf="recipe.glutenFree" class="flag-container flag-pink">
+                gluten free
+            </div>
+            <div *ngIf="recipe.dairyFree" class="flag-container back-orange">
+                dairy free
+            </div>
         </div>
+        <!-- <div class="summary-container">
+        </div> -->
     </div>
     <div id="ingredient-directions-container">
         <div id="ingredient-container">

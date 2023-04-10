@@ -177,7 +177,7 @@ flex-direction: column;
 
 .ingredient-bullet, .direction-bullet{
     margin-bottom: 12px;
-    
+    width: 98%;
 }
 
 .ingredient-bullet i {
@@ -231,3 +231,19 @@ flex-direction: column;
     font-weight: 700;
 }
 
+#all-flags-container{
+    position: absolute;
+    right: 0;
+    bottom: -13px;
+}
+
+.flag-container{
+    margin-right: 15px; 
+    display: inline-block; 
+    padding: 2px 25px; 
+    border-radius: 12px; 
+    font-size: 1em; 
+    font-family: 'Poppins'; 
+    color: white; 
+    font-weight: 600;
+}
