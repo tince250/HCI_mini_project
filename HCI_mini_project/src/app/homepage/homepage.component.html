@@ -1,6 +1,6 @@
 <div id="paginated-cards-container">
     <div *ngIf="noResults" class="no-results">
-        <p >We're sorry! We don't have any recipes that match your preferences.</p>
+        <p>{{ errorMessage }}</p>
     </div>
    
     <div id="card-container" *ngIf="!noResults">

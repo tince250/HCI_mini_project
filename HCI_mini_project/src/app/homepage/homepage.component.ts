@@ -27,6 +27,9 @@ export class HomepageComponent implements OnInit {
 
   scrollable = false;
   noResults = false;
+  errorMessage = "";
+  noResultsMessage = "We're sorry! We don't have any recipes that match your preferences.";
+  apiErrorMessage = "Oops! Something went wrong on our side. Try refreshing the page, if the problem persists - try again later.";
 
   constructor(private recipesService: RecipesService, private router: Router, private mediaMatcher: MediaMatcher) {
     this.biggerDesktop = mediaMatcher.matchMedia('(min-width: 1450px)');
@@ -35,6 +38,7 @@ export class HomepageComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.noResults = false;
 
       // Set initial page size based on screen size
     this.setPageSize();
@@ -50,6 +54,7 @@ export class HomepageComponent implements OnInit {
 
         if (res.results.length == 0) {
           this.noResults = true;
+          this.errorMessage = this.noResultsMessage;
           console.log("nema rezultata");
           this.totalResults = 0;
           return;
@@ -63,17 +68,19 @@ export class HomepageComponent implements OnInit {
         this.recipesSlice = this.allFetchedRecipes.slice(this.offset, this.pageSize);
       } 
       else {
-        // this.recipesService.getRandomRecipes(this.pageSize).subscribe({
-        //   next: (res) => {
-        //     this.allFetchedRecipes = res.recipes;
-        //     this.totalResults = res.recipes.length;
-        //     this.recipesSlice = this.allFetchedRecipes.slice(this.offset, this.pageSize);
-        //     console.log(this.recipesSlice);
-        //   }, 
-        //   error: (err) => {
-        //     console.log(err);
-        //   },
-        // });
+        this.recipesService.getRandomRecipes(this.pageSize).subscribe({
+          next: (res) => {
+            this.allFetchedRecipes = res.recipes;
+            this.totalResults = res.recipes.length;
+            this.recipesSlice = this.allFetchedRecipes.slice(this.offset, this.pageSize);
+            console.log(this.recipesSlice);
+          }, 
+          error: (err) => {
+            console.log(err);
+            this.noResults = true;
+            this.errorMessage = this.apiErrorMessage;
+          },
+        });
       }
 
       
@@ -124,6 +131,8 @@ export class HomepageComponent implements OnInit {
         },
         error: (err) => {
           console.log(err);
+          this.noResults = true;
+          this.errorMessage = this.apiErrorMessage;
         }
       });
 
@@ -163,7 +172,9 @@ export class HomepageComponent implements OnInit {
         // this.router.navigate(['/recipe-details']);
       },
       error: (err) => {
-        console.log(err)
+        console.log(err);
+        this.noResults = true;
+        this.errorMessage = "Oops! Something went wrong on our side. Try to open some other recipe, if the problem persists - try again later."
       },
     });
   }
