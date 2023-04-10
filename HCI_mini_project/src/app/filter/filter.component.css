@@ -52,6 +52,10 @@ mat-label div {
     width: 180px;
 }
 
+#main_container > div > img {
+    display: none;
+}
+
 @media screen and (max-width: 1000px) {
     #cuisine-dd {
         display: none;
@@ -84,6 +88,7 @@ mat-label div {
         /* margin: auto 15px; */
         /* margin-top: auto;
         margin-bottom: auto; */
+        display: block;
         margin: auto 15px;
         height: 20px;
      }

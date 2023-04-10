@@ -30,6 +30,14 @@ p {
 
 #title-img {
     height: 200px;
+    margin: 0 auto;
+}
+
+#x {
+    margin-left: auto;
+    height: 20px;
+    margin-top: 10px;
+    display: none;
 }
 
 .title {
@@ -184,7 +192,7 @@ mat-label > img {
 
 button {
     padding: 0.8rem 1.4rem;
-    width: 10rem;
+    width: 8rem;
     background-color: #006D77;
     color: white;
     border-radius: 12px;
@@ -207,6 +215,10 @@ button {
 
 @media screen and (max-width: 1000px) {
     #dropdown-form {
+        display: block;
+    }
+
+    #x {
         display: block;
     }
 }

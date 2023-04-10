@@ -53,8 +53,15 @@ export class RecipesService {
 
     filter(form: FormGroup, gluten: boolean, dairy: boolean, included: String[], excluded: String[], cusine: String, type: String, diet:String) : Observable<any> {
         let url = environment.search;
-        if (this.lastUrl != '') {url = this.lastUrl;}
 
+        if (this.currCusine != '') 
+            url = url + '&cuisine=' + this.currCusine;
+        if (this.currType != '') 
+            url = url + '&type=' + this.currType;
+        if (this.currDiet != '') 
+            url = url + '&diet=' + this.currDiet;
+        if (this.currTitle != '') 
+            url = url + '&titleMatch=' + this.currTitle;
         if (cusine != '')
             url = url + '&cuisine=' + cusine;
             this.currCusine = cusine;
@@ -64,11 +71,11 @@ export class RecipesService {
         if (diet != '')
             url = url + '&diet=' + diet;
             this.currDiet = diet;
-        if (form.value.prep_time != '') 
+        if (form.value.prep_time) 
             url = url + '&maxReadyTime=' + form.value.prep_time;
-        if (form.value.max_cal != '')
+        if (form.value.max_cal)
             url = url + '&maxCalories=' + form.value.max_cal
-        if (form.value.min_cal != '')
+        if (form.value.min_cal)
             url = url + '&minCalories=' + form.value.min_cal
         if (gluten)
             url = url + '&diet=' + 'Gluten Free'
@@ -79,7 +86,8 @@ export class RecipesService {
         if (excluded.length != 0)
             url = url + '&excludeIngredients=' + excluded.join()
 
-        return this.http.get<AllRecipesDTO>(url + '&offset=' + this.offset + '&number=' + this.number);
+        this.lastUrl = url + '&offset=' + this.offset + '&number=' + this.number;
+        return this.http.get<AllRecipesDTO>(this.lastUrl);
     }
 
 
