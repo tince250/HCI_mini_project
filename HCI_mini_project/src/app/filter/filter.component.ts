@@ -10,8 +10,8 @@ import { AllRecipesDTO, RecipesService } from '../services/recipesService';
 })
 export class FilterComponent implements OnInit {
 
-  selected_cuisine: string = ''
-  cuisine_dd: String[] = ['African',
+  selected_cuisine: String = ''
+  cuisine_dd: String[] = ['All', 'African',
     'American',
     'British',
     'Cajun',
@@ -37,8 +37,8 @@ export class FilterComponent implements OnInit {
     'Spanish',
     'Thai',
     'Vietnamese']
-  selected_type: string = ''
-  type_dd: String[] = ['main course',
+  selected_type: String = ''
+  type_dd: String[] = ['All', 'main course',
     'side dish',
     'dessert',
     'appetizer',
@@ -52,8 +52,8 @@ export class FilterComponent implements OnInit {
     'fingerfood',
     'snack',
     'drink']
-  selected_diet = ''
-  diet_dd: String[] = ['Gluten Free', 'Ketogenic', 'Vegetarian', 'Lacto-Vegetarian', 'Ovo-Vegetarian', 'Vegan', 'Pescetarian', 'Paleo', 'Primal', 'Low FODMAP', 'Whole30']
+  selected_diet: String = ''
+  diet_dd: String[] = ['All', 'Gluten Free', 'Ketogenic', 'Vegetarian', 'Lacto-Vegetarian', 'Ovo-Vegetarian', 'Vegan', 'Pescetarian', 'Paleo', 'Primal', 'Low FODMAP', 'Whole30']
 
   searchForm = new FormGroup({
     search_bar: new FormControl(''),
@@ -66,28 +66,34 @@ export class FilterComponent implements OnInit {
   }
 
   search() : void {
-    this.service.getByName(this.searchForm.value.search_bar!).subscribe((res) => {
+    this.service.search(this.searchForm.value.search_bar!, this.selected_cuisine, this.selected_type, this.selected_diet).subscribe((res) => {
       console.log(res)
       this.service.setFetchedRecipes(res);
     })
   }
 
   searchByCusine(c: String) : void {
-    this.service.getByCusine(c).subscribe((res) => {
-      console.log(res)
-    })
+    if (c == 'All')
+      this.selected_cuisine = ''
+    else
+      this.selected_cuisine = c;
+    this.search();
   }
 
   searchByType(c: String) : void {
-    this.service.getByType(c).subscribe((res) => {
-      console.log(res)
-    })
+    if (c == 'All')
+      this.selected_type = ''
+    else
+      this.selected_type = c;
+    this.search();
   }
 
   searchByDiet(c: String) : void {
-    this.service.getByDiet(c).subscribe((res) => {
-      console.log(res)
-    })
+    if (c == 'All')
+      this.selected_diet = ''
+    else
+      this.selected_diet = c;
+    this.search();
   }
 
 

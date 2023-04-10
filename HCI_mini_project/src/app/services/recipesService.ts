@@ -13,6 +13,9 @@ export class RecipesService {
 
     public chosenRecipe: any;
 
+    public number: number = 8;
+    public offset: number = 0;
+
     constructor(private http: HttpClient) {}
 
     setFetchedRecipes(recipes: any) {
@@ -22,6 +25,21 @@ export class RecipesService {
     getFetchedRecipes(): Observable<any> {
         return this.fetchedRecipes.asObservable();
     }
+
+    search(title: string, cusine: String, type:String, diet:String) : Observable<any> {
+        let url = environment.search;
+        if (title != '') 
+            url = url + '&titleMatch=' + title;
+        if (cusine != '')
+            url = url + '&cuisine=' + cusine;
+        if (type != '')
+            url = url + '&type=' + type;
+        if (diet != '')
+            url = url + '&diet=' + diet;
+        console.log(url)
+        return this.http.get<AllRecipesDTO>(url + '&offset=' + this.offset + '&number=' + this.number);
+    }
+
 
     getByName(title: string) : Observable<AllRecipesDTO> {
         return this.http.get<AllRecipesDTO>(environment.search + "&titleMatch=" + title + "&addRecipeInformation=true");
