@@ -72,9 +72,9 @@ export class SearchComponent implements OnInit {
 
   included_ing: String[] = ['s']
   searchForm = new FormGroup({
-    prep_time: new FormControl(0, [Validators.required, prepTimeValidator]),
-    max_cal: new FormControl(0),
-    min_cal: new FormControl(0),
+    prep_time: new FormControl('', [Validators.required, prepTimeValidator]),
+    max_cal: new FormControl(''),
+    min_cal: new FormControl(''),
     include_ing: new FormControl(''),
     exclude_ing: new FormControl(''),
   }, [])
@@ -87,10 +87,17 @@ export class SearchComponent implements OnInit {
   excluded: String[] = []
   
   search() : void {
-    this.service.filter(this.searchForm, this.gluten_checked, this.dairy_checked, this.included, this.excluded).subscribe((res) => {
-      console.log(res)
-      this.service.setFetchedRecipes(res);
-    })
+    this.service.filter(this.searchForm, this.gluten_checked, this.dairy_checked, this.included, this.excluded, this.selected_cuisine, this.selected_type, this.selected_diet).subscribe({
+      next: (res: any) => {
+        console.log(res)
+        this.service.setFetchedRecipes(res);
+      },
+      error: (error: any) => {
+        console.log("Server is not responding.")
+      }
+    });
+    if (window.innerWidth < 1000)
+        this.closeFilter();
   }
 
   toggle_gluten(): void {
@@ -139,7 +146,6 @@ export class SearchComponent implements OnInit {
       this.selected_cuisine = ''
     else
       this.selected_cuisine = c;
-    this.search();
   }
 
   searchByType(c: String) : void {
@@ -147,14 +153,24 @@ export class SearchComponent implements OnInit {
       this.selected_type = ''
     else
       this.selected_type = c;
-    this.search();
-  }
+ }
 
   searchByDiet(c: String) : void {
     if (c == 'All')
       this.selected_diet = ''
     else
       this.selected_diet = c;
-    this.search();
+  }
+
+  closeFilter(): void {
+    const search = document.getElementsByTagName('app-search')[0] as HTMLElement;
+    const filter = document.getElementsByTagName('app-filter')[0] as HTMLElement;
+    const homep = document.getElementsByTagName('app-homepage')[0] as HTMLElement;
+
+    if(filter) {
+      search.style.display = "none";
+      filter.style.display = "block";
+      homep.style.display = "block";
+    }
   }
 }

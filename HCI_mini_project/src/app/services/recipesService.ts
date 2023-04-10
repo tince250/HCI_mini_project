@@ -47,18 +47,28 @@ export class RecipesService {
             url = url + '&diet=' + diet;
             this.currDiet = diet;
 
-        this.lastUrl = url;
-        return this.http.get<AllRecipesDTO>(url + '&offset=' + this.offset + '&number=' + this.number);
+        this.lastUrl = url + '&offset=' + this.offset + '&number=' + this.number;
+        return this.http.get<AllRecipesDTO>(this.lastUrl);
     }
 
-    filter(form: FormGroup, gluten: boolean, dairy: boolean, included: String[], excluded: String[]) : Observable<any> {
+    filter(form: FormGroup, gluten: boolean, dairy: boolean, included: String[], excluded: String[], cusine: String, type: String, diet:String) : Observable<any> {
         let url = environment.search;
         if (this.lastUrl != '') {url = this.lastUrl;}
-        if (form.value.prep_time != 0) 
+
+        if (cusine != '')
+            url = url + '&cuisine=' + cusine;
+            this.currCusine = cusine;
+        if (type != '')
+            url = url + '&type=' + type;
+            this.currType = type;
+        if (diet != '')
+            url = url + '&diet=' + diet;
+            this.currDiet = diet;
+        if (form.value.prep_time != '') 
             url = url + '&maxReadyTime=' + form.value.prep_time;
-        if (form.value.max_cal != 0)
+        if (form.value.max_cal != '')
             url = url + '&maxCalories=' + form.value.max_cal
-        if (form.value.min_cal != 0)
+        if (form.value.min_cal != '')
             url = url + '&minCalories=' + form.value.min_cal
         if (gluten)
             url = url + '&diet=' + 'Gluten Free'
