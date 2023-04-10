@@ -95,6 +95,10 @@ html, body { height: 100%; width: 100%; margin: 0; font-family: "Poppins", sans-
     background-color: #FF9A6C !important;
 }
 
+
+.flag-pink {
+    background-color: #F0C8BB;
+}
 .green {
     color: #83C5BE !important;
 }

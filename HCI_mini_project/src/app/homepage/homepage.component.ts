@@ -168,8 +168,9 @@ export class HomepageComponent implements OnInit {
     this.recipesService.getById(716429).subscribe({
       next: (res) => {
         this.recipesService.chosenRecipe = res;
+        console.log(res.id);
         console.log(res);
-        // this.router.navigate(['/recipe-details']);
+        this.router.navigate(['/recipe-details']);
       },
       error: (err) => {
         console.log(err);
@@ -178,5 +179,8 @@ export class HomepageComponent implements OnInit {
       },
     });
   }
+  //this.router.navigate(['../recipe-details']);
+  // }
+} 
+//}
 
-}

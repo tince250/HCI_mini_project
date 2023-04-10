@@ -1,0 +1,121 @@
+<app-details-header></app-details-header>
+
+<div class="border" id="details-div">
+    <div id="upper-details-container">
+        <img [src]="recipe.image" class="img-border">
+        <div id="title-container">
+            <div id="recipe-name-container">
+                <span id="recipe-name-text" class="green">{{ recipe.title }}</span>
+            </div>
+            <div id="main-details-container" class="gray">
+                <div>
+                    <i class="fa-sharp fa-solid fa-clock"></i>
+                    <span>Prep time: <span class="orange">{{ recipe.readyInMinutes }} min</span></span>
+                </div>
+                <div>
+                    <i class="fa-solid fa-user-group"></i>
+                    <span>Number of servings: <span class="orange">{{ recipe.servings }}</span></span>
+                </div>
+                <div>
+                    <i class="fa-solid fa-sack-dollar"></i>
+                    <span>Price per serving: <span class="orange">{{ recipe.pricePerServing }}</span></span>
+                </div>
+            </div>
+        </div>
+        <div style="border-radius: 0px 0px 10px 10px; height: 30px; background-color: #D9D9D9;">
+
+        </div>
+        <div id="all-flags-container">
+            <div *ngIf="recipe.vegetarian" class="flag-container back-green">
+                vegeterian
+            </div>
+            <div *ngIf="!recipe.vegetarian && recipe.vegan" class="flag-container back-green">
+                vegan
+            </div>
+            <div *ngIf="recipe.glutenFree" class="flag-container flag-pink">
+                gluten free
+            </div>
+            <div *ngIf="recipe.dairyFree" class="flag-container back-orange">
+                dairy free
+            </div>
+        </div>
+        <!-- <div class="summary-container">
+        </div> -->
+    </div>
+    <div id="ingredient-directions-container">
+        <div id="two-options-container">
+            <button (click)="clickedFirst()" mat-button [ngClass]="firstOption == true ? 'green option-container weight-700' : 'gray option-container'">Ingredients</button>
+            <button (click)="clickedSecond()" mat-button [ngClass]="firstOption == false ? 'green option-container weight-700' : 'gray option-container'">Directions</button>
+        </div>
+        <div id="ingredient-container" *ngIf="firstOption">
+            <h4 class="green">Ingredients</h4>            
+            <div class="aibcp">
+                <div class="aibcf">
+                <div id="all-ingredient-bullets-container" #ingredientScrollable *ngFor="let ingredient of recipe.extendedIngredients; let indexOfelement =index">
+                    <div class="ingredient-bullet">
+                        <i class="fa-solid fa-circle"></i>
+                        <span> {{ ingredient.original }}</span>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <img class="scroll-img" *ngIf="!isIngredientScrollNeedable" src="../assets/images/scroll.svg">
+        </div>
+        <div id="id-line"></div>
+        <div *ngIf="recipe.instructions != '' && (!firstOption || !responsiveOptions)" [ngClass]="!firstOption ? '' : 'no-display' " id="directions-container">
+            <h4 class="green">Directions</h4>
+            <div class="aibcp">
+                <div class="aibcf">
+                <div id="all-directions-bullets-container" #directionScrollable *ngFor="let instruction of recipe.analyzedInstructions[0].steps; let indexOfelement =index">
+                    <div class="direction-bullet">
+                        <div class="square-bullet">{{ instruction.number }}.</div>
+                        <span>{{ instruction.step }}</span>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <img class="scroll-img" *ngIf="!isDirectionScrollNeedable" src="../assets/images/scroll.svg">
+        </div>
+        <!-- <div *ngIf="recipe.instructions == ''" id="directions-container"> -->
+        <div *ngIf="recipe.instructions == '' && (!firstOption || !responsiveOptions)" [ngClass]="!firstOption ? '' : 'no-display' "  id="no-instructions-container">
+            <h4 class="green">Directions</h4>
+            <div id="nit-container">
+                <span>Unfortunately, the directions for this recipe are not available at the moment!</span>
+            </div>
+        </div>
+            
+        
+    </div>
+</div> 
+
+<div *ngIf="recipe.winePairing.pairedWines.length == 0" class="border wines-shadow" id="no-wines-container">
+    <span class="red-orange">Unfortunately, there are no pairing wines with this recipe!</span>
+</div>
+
+<div *ngIf="recipe.winePairing.pairedWines.length != 0" class="border wines-shadow" id="wines-container">
+    <div id="all-wines-container">
+        <h4 class="green">Care for a cup of Wine with your meal?</h4>
+        <span>This dish always goes well with:</span>
+        <div id="all-wines-bullets-container" *ngFor="let wine of recipe.winePairing.pairedWines; let indexOfelement =index">
+            <div *ngIf="indexOfelement < 3" class="ingredient-bullet">
+                <i class="fa-solid fa-circle"></i>
+                <span> {{ wine.toUpperCase() }} </span>
+            </div>
+        </div>
+
+        <span>{{ recipe.winePairing.pairingText }}</span>
+    </div>
+    <div id="recommended-wine-container">
+        <span>our recommendation:</span>
+        <div id="recommended-wine-name" class="back-green">
+            {{ recipe.productMatches[0].title }}
+        </div>
+        <div style="padding: 15px;">
+            <a [href]="recipe.productMatches[0].link">
+                <img [src]="recipe.productMatches[0].imageUrl" class="circle-img">
+            </a>
+            
+        </div>
+        <span>{{ recipe.productMatches[0].description }}</span>
+    </div>
+</div>

@@ -9,17 +9,19 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { SearchComponent } from './search/search.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DetailsHeaderComponent } from './details-header/details-header.component';
+import { RecipeDetailsComponent } from './recipe-details/recipe-details.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-
+import { CommonModule } from '@angular/common';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { FilterComponent } from './filter/filter.component'
 import { HttpClientModule } from '@angular/common/http';
 
-import { InfiniteScrollModule } from 'ngx-infinite-scroll';
-
 @NgModule({
   declarations: [
     AppComponent,
+    DetailsHeaderComponent,
+    RecipeDetailsComponent,
     HomepageComponent,
     SearchComponent,
     FilterComponent
@@ -37,7 +39,7 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     BrowserAnimationsModule,
     MatSnackBarModule,
     HttpClientModule,
-    InfiniteScrollModule
+    CommonModule
   ],
   providers: [
     { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'outline', hideRequiredMarker: 'true' }}
