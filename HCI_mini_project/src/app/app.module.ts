@@ -12,7 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DetailsHeaderComponent } from './details-header/details-header.component';
 import { RecipeDetailsComponent } from './recipe-details/recipe-details.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-
+import { CommonModule } from '@angular/common';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { FilterComponent } from './filter/filter.component'
 import { HttpClientModule } from '@angular/common/http';
@@ -38,7 +38,8 @@ import { HttpClientModule } from '@angular/common/http';
     MaterialModule,
     BrowserAnimationsModule,
     MatSnackBarModule,
-    HttpClientModule 
+    HttpClientModule,
+    CommonModule
   ],
   providers: [
     { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'outline', hideRequiredMarker: 'true' }}

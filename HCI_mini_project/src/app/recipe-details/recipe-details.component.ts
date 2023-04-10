@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterContentInit, AfterViewInit, ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { RecipesService } from '../services/recipesService';
 
 @Component({
@@ -6,13 +6,23 @@ import { RecipesService } from '../services/recipesService';
   templateUrl: './recipe-details.component.html',
   styleUrls: ['./recipe-details.component.css']
 })
-export class RecipeDetailsComponent implements OnInit {
+export class RecipeDetailsComponent implements OnInit, AfterViewInit {
+
+
+  @ViewChild('ingredientScrollable')
+  ingredientScrollableDiv: ElementRef;
+  isIngredientScrollNeedable: boolean = false;
 
   recipe: any;
-
   url: any = "https://spoonacular.com/recipeImages/716429-556x370.jpg";
-  constructor(private recipesService: RecipesService){
+  constructor(private ref: ChangeDetectorRef, private recipesService: RecipesService){
 
+  }
+  ngAfterViewInit(): void {
+    if (this.ingredientScrollableDiv.nativeElement.clientHeight > this.ingredientScrollableDiv.nativeElement.scrollHeight){
+      this.isIngredientScrollNeedable = true;
+    }
+    this.ref.detectChanges();
   }
 
   ngOnInit(): void {

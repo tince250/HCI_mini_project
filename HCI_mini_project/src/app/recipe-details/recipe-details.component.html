@@ -1,3 +1,5 @@
+<app-details-header></app-details-header>
+
 <div class="border" id="details-div">
     <div id="upper-details-container">
         <img [src]="recipe.image" class="img-border">
@@ -27,13 +29,23 @@
         </div>
         <div id="ingredient-directions-container">
             <div id="ingredient-container">
+                    <!-- <h4 class="green">
+                        <img src="../assets/images/scroll.svg">
+                        Ingredients</h4> -->
                 <h4 class="green">Ingredients</h4>
-                <div id="all-ingredient-bullets-container" *ngFor="let ingredient of recipe.extendedIngredients; let indexOfelement =index">
-                    <div class="ingredient-bullet">
-                        <i class="fa-solid fa-circle"></i>
-                        <span> {{ ingredient.original }}</span>
+                <!-- *ngIf="!isIngredientScrollNeedable" -->
+                
+                <div class="aibcp">
+                    <div class="aibcf">
+                    <div id="all-ingredient-bullets-container" #ingredientScrollable *ngFor="let ingredient of recipe.extendedIngredients; let indexOfelement =index">
+                        <div class="ingredient-bullet">
+                            <i class="fa-solid fa-circle"></i>
+                            <span> {{ ingredient.original }}</span>
+                        </div>
+                    </div>
                     </div>
                 </div>
+                <img src="../assets/images/scroll.svg">
             </div>
             <div id="id-line"></div>
             <div id="directions-container">
