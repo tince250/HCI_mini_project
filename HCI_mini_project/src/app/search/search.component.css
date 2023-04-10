@@ -184,6 +184,7 @@ mat-label > img {
 
 button {
     padding: 0.8rem 1.4rem;
+    width: 10rem;
     background-color: #006D77;
     color: white;
     border-radius: 12px;
