@@ -59,6 +59,8 @@ export class FilterComponent implements OnInit {
     search_bar: new FormControl(''),
   }, [])
 
+  selected = '';
+
   constructor(private service: RecipesService) {}
   ngOnInit(): void {
     // throw new Error('Method not implemented.');
@@ -72,7 +74,9 @@ export class FilterComponent implements OnInit {
     })
   }
 
-  searchByCusine(c: String) : void {
+  searchByCusine(event: any) : void {
+    let c = event.value;
+    console.log("iz komp: " + c);
     if (c == 'All')
       this.selected_cuisine = ''
     else
@@ -80,7 +84,8 @@ export class FilterComponent implements OnInit {
     this.search();
   }
 
-  searchByType(c: String) : void {
+  searchByType(event: any) : void {
+    let c = event.value;
     if (c == 'All')
       this.selected_type = ''
     else
@@ -88,7 +93,8 @@ export class FilterComponent implements OnInit {
     this.search();
   }
 
-  searchByDiet(c: String) : void {
+  searchByDiet(event: any) : void {
+    let c = event.value;
     if (c == 'All')
       this.selected_diet = ''
     else

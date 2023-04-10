@@ -15,7 +15,7 @@ p {
 
 #main-container {
     width: 100%;
-    height: fit-content;
+    height: 100%;
     /* border: 1px solid black; */
     align-items: center;
     background-color: white;
@@ -23,6 +23,17 @@ p {
     overflow-y: scroll;
 }
 
+::ng-deep #max-cal .mat-form-field-underline {
+    border-radius: 20px; /* Adjust the value as desired */
+  }
+  
+  ::ng-deep #max-cal .mat-form-field-ripple {
+    border-radius: 20px; /* Adjust the value as desired */
+  }
+  
+  ::ng-deep #max-cal .mat-form-field-wrapper {
+    border-radius: 20px; /* Adjust the value as desired */
+  }
 .title > div {
     width: 100%;
 }
@@ -30,11 +41,13 @@ p {
 #title-text {
     width: 30%;
     margin-top: -20px;
+    margin-bottom: 10px;
 }
 
 #title-img {
-    height: 200px;
-    margin: 0 auto;
+    height: 160px;
+    /* height: 200px;
+    margin: 0 auto; */
 }
 
 #x {
@@ -65,9 +78,11 @@ form {
 .field-title {
     width: 90%;
     vertical-align: middle;
-    margin-top: 0.5rem;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+    font-weight: 400;
 }
 
 .field-title > p {
@@ -88,6 +103,7 @@ form {
     margin-left: 0.5rem;
     margin-top: auto;
     margin-bottom: auto;
+    font-weight: normal !important;
 }
 
 ::ng-deep .mat-mdc-form-field-infix {
@@ -105,7 +121,13 @@ mat-form-field {
     margin-top: 0.5rem;
     margin-left: 0.5rem;
     margin-right: 0.5rem;
+    font-size: 0.9em;
 }
+
+mat-error {
+    font-size: 0.7em;
+}
+
 /* 
 .mat-mdc-form-field-subscript-wrapper {
     height: 0;
@@ -148,17 +170,25 @@ mat-label > img {
 
 /* INCLUDED INGR */
 #included-container {
-    overflow-x: hidden;
-    overflow-y: hidden;
+    margin-top: -15px;
+}
+
+#included-container {
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+#included-container::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
 }
 
 
 .included-item {
     font-family: 'Poppins', sans-serif;
-    padding: 0.2rem 0.2rem;
+    padding: 0.2em 0.6em;
     align-self: center;
     align-items: center;
-    border-radius: 12px;
+    border-radius: 15px;
     margin-bottom: 1rem;
     margin-right: 5px;
 }
@@ -216,6 +246,30 @@ button:hover {
 .checkboxes {
     width: 95%;
     margin: 0 auto;
+    font-size: 0.95em;
+    color: #8c8e90 !important;
+    margin-bottom: 12px;
+}
+
+::ng-deep .mat-mdc-checkbox label {
+    color: #8c8e90 !important;
+    padding-left: 0px;
+}
+
+::ng-deep .mdc-form-field>label {
+    padding-left: 0px !important;
+    margin-left: -5px !important;
+}
+
+.dairy-checkbox {
+    margin-left: 10px;
+}
+
+.remove-ingredient {
+    transform:rotate(45deg);
+    margin-left: 8px;
+    margin-top: 1px;
+    cursor: pointer;
 }
 
 #dropdown-form {

@@ -54,6 +54,19 @@ mat-label div {
     width: 180px;
 }
 
+::ng-deep .mat-mdc-select-arrow svg {
+    top: 70% !important;
+    transform: translate(-50%, -50%) !important;
+}
+
+::ng-deep .mat-mdc-text-field-wrapper:not(.mdc-text-field--outlined) .mat-mdc-form-field-infix {
+    padding-top: 12px;
+    padding-bottom: 4px;
+}
+
+::ng-deep mat-label>img {
+    height: 1.3em;
+}
 #main_container > div > img {
     display: none;
 }
