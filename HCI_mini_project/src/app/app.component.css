@@ -21,3 +21,18 @@ app-homepage {
     padding: 40px;
 }
 
+
+@media screen and (max-width: 1000px) {
+    div {
+        display: flex;
+        flex-direction: column;
+    }
+    app-search {
+        display: none;
+    }
+
+    app-filter {
+        width: 100%;
+    }
+}
+

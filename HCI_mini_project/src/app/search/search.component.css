@@ -199,3 +199,13 @@ button {
     width: 95%;
     margin: 0 auto;
 }
+
+#dropdown-form {
+    display: none;
+}
+
+@media screen and (max-width: 1000px) {
+    #dropdown-form {
+        display: block;
+    }
+}

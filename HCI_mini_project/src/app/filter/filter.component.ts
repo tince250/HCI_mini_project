@@ -96,6 +96,18 @@ export class FilterComponent implements OnInit {
     this.search();
   }
 
+  openFilter(): void {
+    const search = document.getElementsByTagName('app-search')[0] as HTMLElement;
+    const filter = document.getElementsByTagName('app-filter')[0] as HTMLElement;
+    const homep = document.getElementsByTagName('app-homepage')[0] as HTMLElement;
+
+    if(filter) {
+      search.style.display = "block";
+      filter.style.display = "none";
+      homep.style.display = "none";
+    }
+  }
+
 
 
 

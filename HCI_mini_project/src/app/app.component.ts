@@ -19,7 +19,14 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     
-  }       
+  }
+  
+  openFilter(): void {
+    const filter = document.getElementsByTagName('app-filter') as unknown as HTMLElement;
+    if(filter) {
+      filter.style.display = "block";
+    }
+  }
 
   save(): void {
     

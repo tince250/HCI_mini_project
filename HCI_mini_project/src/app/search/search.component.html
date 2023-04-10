@@ -4,6 +4,40 @@
         <img id="title-text" src="../../assets/images/Cookeasy-text.svg">
     </div>
     <div class="form" >
+
+
+        <form fxLayout="column" #formDirective="ngForm" id="dropdown-form">
+            <mat-form-field appearance="fill" id="cuisine-dd">
+                <mat-label>Cuisine</mat-label>
+                <mat-select >
+                  <mat-option *ngFor="let item of cuisine_dd" [value]="item" (onSelectionChange)="searchByCusine(item)">
+                    {{item}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+    
+              <mat-form-field appearance="fill" id="cuisine-dd">
+                <mat-label>Meal type</mat-label>
+                <mat-select>
+                  <mat-option *ngFor="let item of type_dd" [value]="item" (onSelectionChange)="searchByType(item)">
+                    {{item}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+    
+              <mat-form-field appearance="fill" id="cuisine-dd">
+                <mat-label>Diet</mat-label>
+                <mat-select>
+                  <mat-option *ngFor="let item of diet_dd" [value]="item" (onSelectionChange)="searchByDiet(item)">
+                    {{item}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+        </form>
+
+
+
+
         <form fxLayout="column" [formGroup]="searchForm" (ngSubmit)="search()" #formDirective="ngForm">
             <div class="field-title row">
                 <p>Prep time</p>

@@ -20,6 +20,56 @@ export class SearchComponent implements OnInit {
     console.log('cao')
   }
 
+
+  selected_cuisine: String = ''
+  cuisine_dd: String[] = ['All', 'African',
+    'American',
+    'British',
+    'Cajun',
+    'Caribbean',
+    'Chinese',
+    'Eastern European',
+    'European',
+    'French',
+    'German',
+    'Greek',
+    'Indian',
+    'Irish',
+    'Italian',
+    'Japanese',
+    'Jewish',
+    'Korean',
+    'Latin American',
+    'Mediterranean',
+    'Mexican',
+    'Middle Eastern',
+    'Nordic',
+    'Southern',
+    'Spanish',
+    'Thai',
+    'Vietnamese']
+  selected_type: String = ''
+  type_dd: String[] = ['All', 'main course',
+    'side dish',
+    'dessert',
+    'appetizer',
+    'salad',
+    'bread',
+    'breakfast',
+    'soup',
+    'beverage',
+    'sauce',
+    'marinade',
+    'fingerfood',
+    'snack',
+    'drink']
+  selected_diet: String = ''
+  diet_dd: String[] = ['All', 'Gluten Free', 'Ketogenic', 'Vegetarian', 'Lacto-Vegetarian', 'Ovo-Vegetarian', 'Vegan', 'Pescetarian', 'Paleo', 'Primal', 'Low FODMAP', 'Whole30']
+
+
+
+
+
   included_ing: String[] = ['s']
   searchForm = new FormGroup({
     prep_time: new FormControl(0, [Validators.required, prepTimeValidator]),
@@ -28,6 +78,8 @@ export class SearchComponent implements OnInit {
     include_ing: new FormControl(''),
     exclude_ing: new FormControl(''),
   }, [])
+
+  
 
   gluten_checked: boolean = false
   dairy_checked: boolean = false
@@ -77,5 +129,32 @@ export class SearchComponent implements OnInit {
 
   remove_excluded(name: String): void {
     this.excluded = this.excluded.filter(item => item != name);
+  }
+
+
+
+
+  searchByCusine(c: String) : void {
+    if (c == 'All')
+      this.selected_cuisine = ''
+    else
+      this.selected_cuisine = c;
+    this.search();
+  }
+
+  searchByType(c: String) : void {
+    if (c == 'All')
+      this.selected_type = ''
+    else
+      this.selected_type = c;
+    this.search();
+  }
+
+  searchByDiet(c: String) : void {
+    if (c == 'All')
+      this.selected_diet = ''
+    else
+      this.selected_diet = c;
+    this.search();
   }
 }
