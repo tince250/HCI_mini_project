@@ -43,15 +43,15 @@
 
         <form fxLayout="column" [formGroup]="searchForm" (ngSubmit)="search()" #formDirective="ngForm">
             <div class="field-title row">
-                <p>Prep time</p>
+                <p>Prep time (min)</p>
                 <div class="line"></div>
             </div>
             <mat-form-field [hideRequiredMarker]="true"  id="prep_time">
                 <mat-label class="row"><img src="../../assets/images/clock.svg">
                     <div>max prep time</div></mat-label>
                 <!-- <input type="number" matInput> -->
-                <input matInput type="number" name="prep_time" formControlName="prep_time" />
-                <mat-error *ngIf="searchForm.get('prep_time')?.errors?.['required']">Invalid duration in minutes.</mat-error>
+                <input matInput type="text" name="prep_time" formControlName="prep_time" />
+                <mat-error *ngIf="searchForm.get('prep_time')?.errors?.['numberRegexError']">time must be >= 0</mat-error>
             </mat-form-field>
 
             <div class="field-title row">
@@ -61,11 +61,15 @@
             <div class="row">
                 <mat-form-field [hideRequiredMarker]="true"  id="min-cal">
                     <mat-label>Min</mat-label>
-                    <input matInput type="number" name="name" formControlName="min_cal" />
+                    <input matInput type="text" name="min-cal" formControlName="min_cal" />
+                    <mat-error *ngIf="searchForm.get('min_cal')?.errors?.['numberRegexError']">calories must be >= 0</mat-error>
+
                 </mat-form-field>
                 <mat-form-field [hideRequiredMarker]="true"  id="max-cal">
                     <mat-label>Max</mat-label>
-                    <input matInput type="number" name="max-cal" formControlName="max_cal" />
+                    <input matInput type="text" name="max-cal" formControlName="max_cal" />
+                    <mat-error *ngIf="searchForm.get('max_cal')?.errors?.['numberRegexError']">calories must be >= 0</mat-error>
+                    <!-- <mat-error *ngIf="searchForm.errors?.['minMaxError']">max must be greater than min</mat-error> -->
                 </mat-form-field>
             </div>
 
