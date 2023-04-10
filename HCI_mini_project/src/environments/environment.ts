@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  search: 'https://api.spoonacular.com/recipes/complexSearch?apiKey=eaa7f2b1428a4c69914c12db6ec0dec3',
-  apiKey: 'eaa7f2b1428a4c69914c12db6ec0dec3',
+  search: 'https://api.spoonacular.com/recipes/complexSearch?apiKey=da19563bbbcd49978e0b384cd4d5c966',
+  apiKey: 'da19563bbbcd49978e0b384cd4d5c966',
   apiHost: 'https://api.spoonacular.com/recipes/'
 };
 

@@ -20,14 +20,66 @@ export class SearchComponent implements OnInit {
     console.log('cao')
   }
 
+
+  selected_cuisine: String = ''
+  cuisine_dd: String[] = ['All', 'African',
+    'American',
+    'British',
+    'Cajun',
+    'Caribbean',
+    'Chinese',
+    'Eastern European',
+    'European',
+    'French',
+    'German',
+    'Greek',
+    'Indian',
+    'Irish',
+    'Italian',
+    'Japanese',
+    'Jewish',
+    'Korean',
+    'Latin American',
+    'Mediterranean',
+    'Mexican',
+    'Middle Eastern',
+    'Nordic',
+    'Southern',
+    'Spanish',
+    'Thai',
+    'Vietnamese']
+  selected_type: String = ''
+  type_dd: String[] = ['All', 'main course',
+    'side dish',
+    'dessert',
+    'appetizer',
+    'salad',
+    'bread',
+    'breakfast',
+    'soup',
+    'beverage',
+    'sauce',
+    'marinade',
+    'fingerfood',
+    'snack',
+    'drink']
+  selected_diet: String = ''
+  diet_dd: String[] = ['All', 'Gluten Free', 'Ketogenic', 'Vegetarian', 'Lacto-Vegetarian', 'Ovo-Vegetarian', 'Vegan', 'Pescetarian', 'Paleo', 'Primal', 'Low FODMAP', 'Whole30']
+
+
+
+
+
   included_ing: String[] = ['s']
   searchForm = new FormGroup({
-    prep_time: new FormControl(0, [Validators.required, prepTimeValidator]),
-    max_cal: new FormControl(0),
-    min_cal: new FormControl(0),
+    prep_time: new FormControl('', [Validators.required, prepTimeValidator]),
+    max_cal: new FormControl(''),
+    min_cal: new FormControl(''),
     include_ing: new FormControl(''),
     exclude_ing: new FormControl(''),
   }, [])
+
+  
 
   gluten_checked: boolean = false
   dairy_checked: boolean = false
@@ -35,10 +87,17 @@ export class SearchComponent implements OnInit {
   excluded: String[] = []
   
   search() : void {
-    this.service.filter(this.searchForm, this.gluten_checked, this.dairy_checked, this.included, this.excluded).subscribe((res) => {
-      console.log(res)
-      this.service.setFetchedRecipes(res);
-    })
+    this.service.filter(this.searchForm, this.gluten_checked, this.dairy_checked, this.included, this.excluded, this.selected_cuisine, this.selected_type, this.selected_diet).subscribe({
+      next: (res: any) => {
+        console.log(res)
+        this.service.setFetchedRecipes(res);
+      },
+      error: (error: any) => {
+        console.log("Server is not responding.")
+      }
+    });
+    if (window.innerWidth < 1000)
+        this.closeFilter();
   }
 
   toggle_gluten(): void {
@@ -77,5 +136,46 @@ export class SearchComponent implements OnInit {
 
   remove_excluded(name: String): void {
     this.excluded = this.excluded.filter(item => item != name);
+  }
+
+  clear_lists(): void {
+    this.included = [];
+    this.excluded = [];
+  }
+
+
+
+
+  searchByCusine(c: String) : void {
+    if (c == 'All')
+      this.selected_cuisine = ''
+    else
+      this.selected_cuisine = c;
+  }
+
+  searchByType(c: String) : void {
+    if (c == 'All')
+      this.selected_type = ''
+    else
+      this.selected_type = c;
+ }
+
+  searchByDiet(c: String) : void {
+    if (c == 'All')
+      this.selected_diet = ''
+    else
+      this.selected_diet = c;
+  }
+
+  closeFilter(): void {
+    const search = document.getElementsByTagName('app-search')[0] as HTMLElement;
+    const filter = document.getElementsByTagName('app-filter')[0] as HTMLElement;
+    const homep = document.getElementsByTagName('app-homepage')[0] as HTMLElement;
+
+    if(filter) {
+      search.style.display = "none";
+      filter.style.display = "block";
+      homep.style.display = "block";
+    }
   }
 }

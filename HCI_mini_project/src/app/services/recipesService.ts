@@ -16,6 +16,11 @@ export class RecipesService {
 
     public number: number = 8;
     public offset: number = 0;
+    public currTitle: String = '';
+    public currCusine: String = '';
+    public currType: String = '';
+    public currDiet: String = '';
+    public lastUrl: string = '';
 
     public lastQuery: string = "";
 
@@ -37,24 +42,44 @@ export class RecipesService {
         let url = environment.search;
         if (title != '') 
             url = url + '&titleMatch=' + title;
+            this.currTitle = title;
         if (cusine != '')
             url = url + '&cuisine=' + cusine;
+            this.currCusine = cusine;
         if (type != '')
             url = url + '&type=' + type;
+            this.currType = type;
         if (diet != '')
             url = url + '&diet=' + diet;
 
+        this.currDiet = diet;
+
         this.lastQuery = url  + "&addRecipeInformation=true";
         return this.http.get<AllRecipesDTO>(this.lastQuery + '&offset=' + this.offset*this.number + '&number=' + this.number*3);
+            
+
+        // this.lastUrl = url + '&offset=' + this.offset + '&number=' + this.number;
+        // return this.http.get<AllRecipesDTO>(this.lastUrl);
     }
 
-    filter(form: FormGroup, gluten: boolean, dairy: boolean, included: String[], excluded: String[]) : Observable<any> {
+    filter(form: FormGroup, gluten: boolean, dairy: boolean, included: String[], excluded: String[], cusine: String, type: String, diet:String) : Observable<any> {
         let url = environment.search;
-        if (form.value.prep_time != 0) 
+        if (this.lastUrl != '') {url = this.lastUrl;}
+
+        if (cusine != '')
+            url = url + '&cuisine=' + cusine;
+            this.currCusine = cusine;
+        if (type != '')
+            url = url + '&type=' + type;
+            this.currType = type;
+        if (diet != '')
+            url = url + '&diet=' + diet;
+            this.currDiet = diet;
+        if (form.value.prep_time != '') 
             url = url + '&maxReadyTime=' + form.value.prep_time;
-        if (form.value.max_cal != 0)
+        if (form.value.max_cal != '')
             url = url + '&maxCalories=' + form.value.max_cal
-        if (form.value.min_cal != 0)
+        if (form.value.min_cal != '')
             url = url + '&minCalories=' + form.value.min_cal
         if (gluten)
             url = url + '&diet=' + 'Gluten Free'
@@ -67,6 +92,14 @@ export class RecipesService {
 
         return this.http.get<AllRecipesDTO>(url + '&offset=' + this.offset*this.number + '&number=' + this.number);
     }
+
+
+    recreateLastReq() : void {
+        if (this.lastUrl != '')
+            this.setFetchedRecipes(this.http.get<AllRecipesDTO>(this.lastUrl))
+    }
+
+
 
 
     getByName(title: string) : Observable<AllRecipesDTO> {

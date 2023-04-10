@@ -3,6 +3,7 @@
     width: 250px;
     cursor: pointer;
     position: relative;
+    
 }
 
 .recipe-card:hover {
@@ -10,10 +11,12 @@
 }
 
 .recipe-card-image {
-    height: 68%;
+    height: 71%;
     width: 100%;
     border-radius: 15px 15px 0px 0px;
-    object-fit: cover;
+    /* object-fit: cover; */
+    background-size: 110% 130%;
+    background-position: center;
 }
 
 .recipe-card-text {
