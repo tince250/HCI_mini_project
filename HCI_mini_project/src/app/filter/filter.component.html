@@ -6,7 +6,7 @@
             <input matInput type="text" name="prep-time" formControlName="search_bar" />
         </mat-form-field>
 
-        <mat-form-field appearance="fill" id="cuisine-dd" [(ngModel)]="selected_cuisine">
+        <mat-form-field id="cuisine-dd" [(ngModel)]="selected_cuisine">
             <mat-label>Cuisine</mat-label>
             <mat-select [(ngModel)]="selected_cuisine">
               <mat-option *ngFor="let food of cuisine_dd" [value]="food" (onSelectionChange)="searchByCusine(food)">
@@ -15,7 +15,7 @@
             </mat-select>
           </mat-form-field>
 
-          <mat-form-field appearance="fill" id="cuisine-dd">
+          <mat-form-field id="cuisine-dd">
             <mat-label>Meal type</mat-label>
             <mat-select [(ngModel)]="selected_type">
               <mat-option *ngFor="let food of type_dd" [value]="food" (onSelectionChange)="searchByType(food)">
@@ -24,7 +24,7 @@
             </mat-select>
           </mat-form-field>
 
-          <mat-form-field appearance="fill" id="cuisine-dd">
+          <mat-form-field id="cuisine-dd">
             <mat-label>Diet</mat-label>
             <mat-select [(ngModel)]="selected_diet">
               <mat-option *ngFor="let food of diet_dd" [value]="food" (onSelectionChange)="searchByDiet(food)">

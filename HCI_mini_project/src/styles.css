@@ -51,6 +51,9 @@ html, body { height: 100%; width: 100%; margin: 0; font-family: "Poppins", sans-
     top: 1px !important;
 }
 
+.mat-mdc-text-field-wrapper {
+    background-color: white !important;
+}
 
 
 .border {
