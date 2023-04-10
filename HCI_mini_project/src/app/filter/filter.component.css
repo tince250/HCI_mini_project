@@ -16,6 +16,8 @@ p {
 
 form {
     align-items: center;
+    display: flex;
+    flex-direction: row;
 }
 
 
@@ -69,6 +71,21 @@ mat-label div {
     display: none;
 }
 
+@media screen and (max-width: 1450px) {
+    form {
+        flex-direction: column;
+        margin: 0 auto;
+    }
+
+    form div {
+        margin: 0 auto;
+    }
+
+    #main_container {
+        width: 100%;
+        margin-left: 0;
+    }
+}
 @media screen and (max-width: 1000px) {
     #cuisine-dd {
         display: none;
@@ -84,6 +101,7 @@ mat-label div {
 
     form {
         margin-left: auto;
+        margin-right: 0;
     }
 
      #main_container > div {

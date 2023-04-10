@@ -285,3 +285,10 @@ button:hover {
         display: block;
     }
 }
+
+@media screen and (max-width: 750px) {
+    #dropdown-form {
+        display: flex;
+        flex-direction: column;
+    }
+}
