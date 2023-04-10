@@ -65,6 +65,10 @@ mat-label div {
 ::ng-deep mat-label>img {
     height: 1.3em;
 }
+#main_container > div > img {
+    display: none;
+}
+
 @media screen and (max-width: 1000px) {
     #cuisine-dd {
         display: none;
@@ -97,6 +101,7 @@ mat-label div {
         /* margin: auto 15px; */
         /* margin-top: auto;
         margin-bottom: auto; */
+        display: block;
         margin: auto 15px;
         height: 20px;
      }

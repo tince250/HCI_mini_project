@@ -34,6 +34,9 @@ p {
   ::ng-deep #max-cal .mat-form-field-wrapper {
     border-radius: 20px; /* Adjust the value as desired */
   }
+.title > div {
+    width: 100%;
+}
 
 #title-text {
     width: 30%;
@@ -43,6 +46,15 @@ p {
 
 #title-img {
     height: 160px;
+    /* height: 200px;
+    margin: 0 auto; */
+}
+
+#x {
+    margin-left: auto;
+    height: 20px;
+    margin-top: 10px;
+    display: none;
 }
 
 .title {
@@ -210,11 +222,12 @@ mat-label > img {
 #btn {
     width: 100%;
     display: flex;
+    margin-bottom: 20px;
 }
 
 button {
     padding: 0.8rem 1.4rem;
-    width: 10rem;
+    width: 8rem;
     background-color: #006D77;
     color: white;
     border-radius: 12px;
@@ -224,6 +237,10 @@ button {
     align-self: center;
     align-content: center;
     align-items: center ;
+}
+
+button:hover {
+    cursor: pointer;
 }
 
 .checkboxes {
@@ -261,6 +278,10 @@ button {
 
 @media screen and (max-width: 1000px) {
     #dropdown-form {
+        display: block;
+    }
+
+    #x {
         display: block;
     }
 }
