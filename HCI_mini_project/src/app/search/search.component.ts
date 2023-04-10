@@ -4,12 +4,17 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { prepTimeValidator } from '../validators/searchValidators';
+import { RecipesService } from '../services/recipesService';
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html', 
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
+
+
+  constructor(private service: RecipesService) {}
+
   ngOnInit(): void {
     // throw new Error('Method not implemented.')
     console.log('cao')
@@ -18,8 +23,8 @@ export class SearchComponent implements OnInit {
   included_ing: String[] = ['s']
   searchForm = new FormGroup({
     prep_time: new FormControl(0, [Validators.required, prepTimeValidator]),
-    max_cal: new FormControl(''),
-    min_cal: new FormControl(''),
+    max_cal: new FormControl(0),
+    min_cal: new FormControl(0),
     include_ing: new FormControl(''),
     exclude_ing: new FormControl(''),
   }, [])
@@ -30,17 +35,10 @@ export class SearchComponent implements OnInit {
   excluded: String[] = []
   
   search() : void {
-    if (this.searchForm.invalid) {
-      return
-    }
-    console.log(this.searchForm.value.prep_time)
-    
-    console.log(this.searchForm.value.max_cal)
-    console.log(this.searchForm.value.min_cal)
-    console.log(this.searchForm.value.include_ing)
-    console.log(this.searchForm.value.exclude_ing)
-    console.log(this.dairy_checked);
-    console.log(this.gluten_checked)
+    this.service.filter(this.searchForm, this.gluten_checked, this.dairy_checked, this.included, this.excluded).subscribe((res) => {
+      console.log(res)
+      this.service.setFetchedRecipes(res);
+    })
   }
 
   toggle_gluten(): void {

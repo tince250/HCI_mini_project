@@ -3,6 +3,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { environment } from 'src/environments/environment';
+import { FormGroup } from '@angular/forms';
 
 @Injectable({
     providedIn: 'root',
@@ -13,6 +14,11 @@ export class RecipesService {
 
     public chosenRecipe: any;
 
+    public number: number = 8;
+    public offset: number = 0;
+
+    public lastQuery: string = "";
+
     constructor(private http: HttpClient) {}
 
     setFetchedRecipes(recipes: any) {
@@ -22,6 +28,46 @@ export class RecipesService {
     getFetchedRecipes(): Observable<any> {
         return this.fetchedRecipes.asObservable();
     }
+
+    repeatQuery() : Observable<any> {
+        return this.http.get<AllRecipesDTO>(this.lastQuery + '&offset=' + this.offset*this.number + '&number=' + this.number*3);
+    }
+
+    search(title: string, cusine: String, type:String, diet:String) : Observable<any> {
+        let url = environment.search;
+        if (title != '') 
+            url = url + '&titleMatch=' + title;
+        if (cusine != '')
+            url = url + '&cuisine=' + cusine;
+        if (type != '')
+            url = url + '&type=' + type;
+        if (diet != '')
+            url = url + '&diet=' + diet;
+
+        this.lastQuery = url  + "&addRecipeInformation=true";
+        return this.http.get<AllRecipesDTO>(this.lastQuery + '&offset=' + this.offset*this.number + '&number=' + this.number*3);
+    }
+
+    filter(form: FormGroup, gluten: boolean, dairy: boolean, included: String[], excluded: String[]) : Observable<any> {
+        let url = environment.search;
+        if (form.value.prep_time != 0) 
+            url = url + '&maxReadyTime=' + form.value.prep_time;
+        if (form.value.max_cal != 0)
+            url = url + '&maxCalories=' + form.value.max_cal
+        if (form.value.min_cal != 0)
+            url = url + '&minCalories=' + form.value.min_cal
+        if (gluten)
+            url = url + '&diet=' + 'Gluten Free'
+        if (dairy) 
+            url = url + '&intolerances=' + 'dairy'
+        if (included.length != 0)
+            url = url + '&includeIngredients=' + included.join()
+        if (excluded.length != 0)
+            url = url + '&excludeIngredients=' + excluded.join()
+
+        return this.http.get<AllRecipesDTO>(url + '&offset=' + this.offset*this.number + '&number=' + this.number);
+    }
+
 
     getByName(title: string) : Observable<AllRecipesDTO> {
         return this.http.get<AllRecipesDTO>(environment.search + "&titleMatch=" + title + "&addRecipeInformation=true");

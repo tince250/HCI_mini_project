@@ -23,6 +23,18 @@ p {
     overflow-y: scroll;
 }
 
+::ng-deep #max-cal .mat-form-field-underline {
+    border-radius: 20px; /* Adjust the value as desired */
+  }
+  
+  ::ng-deep #max-cal .mat-form-field-ripple {
+    border-radius: 20px; /* Adjust the value as desired */
+  }
+  
+  ::ng-deep #max-cal .mat-form-field-wrapper {
+    border-radius: 20px; /* Adjust the value as desired */
+  }
+
 #title-text {
     width: 30%;
     margin-top: -20px;
