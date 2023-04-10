@@ -75,6 +75,11 @@
     margin: 0 auto;
 }
 
+.no-results {
+    color: #898989 !important;
+    text-align: left;
+}
+
 @media screen and (max-width: 1450px) {
     #card-container {
         grid-template-columns: 1fr 1fr 1fr;
@@ -85,6 +90,10 @@
     ::ng-deep .mat-mdc-paginator {
         margin: 0 auto;
         margin-top: 17px;
+    }
+
+    .no-results {
+        margin-top: 65px;
     }
     
 }
@@ -98,6 +107,10 @@
 
     ::ng-deep .mat-mdc-paginator {
         margin: 0 auto;
+    }
+
+    .no-results {
+        margin-top: 0px;
     }
     
 }

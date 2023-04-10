@@ -59,13 +59,13 @@
                 <div class="line"></div>
             </div>
             <div class="row">
-                <mat-form-field [hideRequiredMarker]="true"  id="max-cal">
-                    <mat-label>Max</mat-label>
-                    <input matInput type="number" name="max-cal" formControlName="max_cal" />
-                </mat-form-field>
                 <mat-form-field [hideRequiredMarker]="true"  id="min-cal">
                     <mat-label>Min</mat-label>
                     <input matInput type="number" name="name" formControlName="min_cal" />
+                </mat-form-field>
+                <mat-form-field [hideRequiredMarker]="true"  id="max-cal">
+                    <mat-label>Max</mat-label>
+                    <input matInput type="number" name="max-cal" formControlName="max_cal" />
                 </mat-form-field>
             </div>
 
@@ -102,8 +102,8 @@
             </div>
             
             <div id="btn">
-                <button type="submit" (click)="search()">Search</button>
                 <button type="reset" class="background-red" (click)="clear_lists()">Reset</button>
+                <button type="submit" (click)="search()">Search</button>
             </div>
 
         </form>

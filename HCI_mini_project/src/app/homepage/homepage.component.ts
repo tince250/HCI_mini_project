@@ -26,6 +26,7 @@ export class HomepageComponent implements OnInit {
   biggerDesktop: MediaQueryList;
 
   scrollable = false;
+  noResults = false;
 
   constructor(private recipesService: RecipesService, private router: Router, private mediaMatcher: MediaMatcher) {
     this.biggerDesktop = mediaMatcher.matchMedia('(min-width: 1450px)');
@@ -45,7 +46,17 @@ export class HomepageComponent implements OnInit {
 
     this.recipesService.getFetchedRecipes().subscribe((res) => {
       console.log(res);
-      if (res != null) {
+      if (res != null ) {
+
+        if (res.results.length == 0) {
+          this.noResults = true;
+          console.log("nema rezultata");
+          this.totalResults = 0;
+          return;
+        }
+
+        this.noResults = false;
+
         this.allFetchedRecipes = res.results;
         this.offset = res.offset;
         this.totalResults = res.totalResults;
