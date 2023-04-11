@@ -51,10 +51,7 @@
                     <div>max prep time</div></mat-label>
                 <!-- <input type="number" matInput> -->
                 <input matInput type="text" name="prep_time" formControlName="prep_time" />
-                <mat-error style="             position: absolute;
-                    right: 0;
-                    top: calc(100% + 5px);
-                  " *ngIf="searchForm.get('prep_time')?.errors?.['numberRegexError']">time must be >= 0</mat-error>
+                <mat-error *ngIf="searchForm.get('prep_time')?.errors?.['numberRegexError']">time must be >= 0</mat-error>
             </mat-form-field>
 
             <div class="field-title row">

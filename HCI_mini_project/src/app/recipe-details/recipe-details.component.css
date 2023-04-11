@@ -369,6 +369,10 @@ span:first-letter {
       height: auto;
     }
 
+    #all-wines-bullets-container {
+        padding: 0;
+    }
+
     .scroll-img {
         display: none;
     }
@@ -448,5 +452,11 @@ span:first-letter {
 
     #recommended-wine-container{
         border-radius: 10px 10px 0 0;
+    }
+
+    #no-instructions-container {
+        width: 100%;
+        padding: 10px;
+        text-align: center;
     }
   }
