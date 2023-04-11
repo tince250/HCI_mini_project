@@ -51,7 +51,10 @@
                     <div>max prep time</div></mat-label>
                 <!-- <input type="number" matInput> -->
                 <input matInput type="text" name="prep_time" formControlName="prep_time" />
-                <mat-error *ngIf="searchForm.get('prep_time')?.errors?.['numberRegexError']">time must be >= 0</mat-error>
+                <mat-error style="             position: absolute;
+                    right: 0;
+                    top: calc(100% + 5px);
+                  " *ngIf="searchForm.get('prep_time')?.errors?.['numberRegexError']">time must be >= 0</mat-error>
             </mat-form-field>
 
             <div class="field-title row">
@@ -88,6 +91,7 @@
             </div>
             <mat-form-field [hideRequiredMarker]="true"  id="include-ing">
                 <input matInput type="text" name="include-ing" (keydown.enter)="add_included()" formControlName="include_ing" />
+                <mat-error *ngIf="searchForm.get('include_ing')?.errors?.['lettersRegexError']">only letters can be used</mat-error>
             </mat-form-field>
             <div id="included-container" *ngIf="included_ing.length != 0" class="row">
                 <div class="included-item row background-green" *ngFor="let item of included"><div>{{item}}</div><div id="img" (click)="remove_included(item)"><i class="fa-solid fa-plus remove-ingredient"></i></div></div>
@@ -100,7 +104,7 @@
             </div>
             <mat-form-field [hideRequiredMarker]="true"  id="exclued-ing">
                 <input matInput type="text" name="exclude-ing" (keydown.enter)="add_excluded()" formControlName="exclude_ing" />
-            </mat-form-field>
+                <mat-error *ngIf="searchForm.get('exclude_ing')?.errors?.['lettersRegexError']">only letters can be used</mat-error></mat-form-field>
             <div id="included-container" *ngIf="included_ing.length != 0" class="row">
                 <div class="included-item row background-red" *ngFor="let item of excluded; let i = index"><div>{{item}}</div><div id="img" (click)="remove_excluded(item)"><i class="fa-solid fa-plus remove-ingredient"></i></div></div>
             </div>

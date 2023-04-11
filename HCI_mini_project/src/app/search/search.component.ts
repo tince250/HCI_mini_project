@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators, FormGroupDirective, NgForm } from '
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { numberRegexValidator, prepTimeValidator } from '../validators/searchValidators';
+import { lettersRegexValidator, numberRegexValidator, prepTimeValidator } from '../validators/searchValidators';
 import { RecipesService } from '../services/recipesService';
 import { minMaxValidator } from '../validators/minMaxValidators';
 import { SnackBarService } from '../custom-snack-bar/snack-bar.service';
@@ -75,8 +75,8 @@ export class SearchComponent implements OnInit {
     prep_time: new FormControl('', numberRegexValidator),
     max_cal: new FormControl('', numberRegexValidator),
     min_cal: new FormControl('', numberRegexValidator),
-    include_ing: new FormControl(''),
-    exclude_ing: new FormControl(''),
+    include_ing: new FormControl('', lettersRegexValidator),
+    exclude_ing: new FormControl('', lettersRegexValidator),
   }, [])
   // }, [minMaxValidator("min_cal", "max_cal")])
 
@@ -117,6 +117,9 @@ export class SearchComponent implements OnInit {
     if (this.searchForm.value.include_ing) {
       if (!this.included.includes(this.searchForm.value.include_ing)) {
         this.included.push(this.searchForm.value.include_ing);
+        this.searchForm.patchValue({
+          include_ing: ''
+        })
         if (this.excluded.includes(this.searchForm.value.include_ing)) {
           this.remove_excluded(this.searchForm.value.include_ing)
         }
@@ -128,6 +131,9 @@ export class SearchComponent implements OnInit {
     if (this.searchForm.value.exclude_ing) {
       if (!this.excluded.includes(this.searchForm.value.exclude_ing)) {
         this.excluded.push(this.searchForm.value.exclude_ing);
+        this.searchForm.patchValue({
+          exclude_ing: ''
+        })
         if (this.included.includes(this.searchForm.value.exclude_ing)) {
           this.remove_included(this.searchForm.value.exclude_ing)
         }

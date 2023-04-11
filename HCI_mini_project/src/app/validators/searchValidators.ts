@@ -16,3 +16,11 @@ import { ErrorStateMatcher } from '@angular/material/core'
     }
     return null;
   }
+
+  export function lettersRegexValidator( control: AbstractControl): { [key: string]: boolean } | null {
+    const regex = /^([a-zA-Zčćđžš ]*)$/;
+    if (control.value !== undefined && !regex.test(control.value)) {
+        return { lettersRegexError: true };
+    }
+    return null;
+  }
