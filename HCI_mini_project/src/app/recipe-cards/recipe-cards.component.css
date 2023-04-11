@@ -77,7 +77,10 @@
 
 .no-results {
     color: #898989 !important;
-    text-align: left;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 @media screen and (max-width: 1450px) {
