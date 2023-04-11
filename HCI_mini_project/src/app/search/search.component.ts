@@ -115,13 +115,14 @@ export class SearchComponent implements OnInit {
 
   add_included(): void {
     if (this.searchForm.value.include_ing) {
-      if (!this.included.includes(this.searchForm.value.include_ing)) {
-        this.included.push(this.searchForm.value.include_ing);
+      let lowerCaseIng = this.searchForm.value.include_ing.toLowerCase();
+      if (!this.included.includes(lowerCaseIng)) {
+        this.included.push(lowerCaseIng);
         this.searchForm.patchValue({
           include_ing: ''
         })
-        if (this.excluded.includes(this.searchForm.value.include_ing)) {
-          this.remove_excluded(this.searchForm.value.include_ing)
+        if (this.excluded.includes(lowerCaseIng)) {
+          this.remove_excluded(lowerCaseIng)
         }
       }  
     }
@@ -129,13 +130,14 @@ export class SearchComponent implements OnInit {
 
   add_excluded(): void {
     if (this.searchForm.value.exclude_ing) {
-      if (!this.excluded.includes(this.searchForm.value.exclude_ing)) {
-        this.excluded.push(this.searchForm.value.exclude_ing);
+      let lowerCaseIng = this.searchForm.value.exclude_ing.toLowerCase();
+      if (!this.excluded.includes(lowerCaseIng)) {
+        this.excluded.push(lowerCaseIng);
         this.searchForm.patchValue({
           exclude_ing: ''
         })
-        if (this.included.includes(this.searchForm.value.exclude_ing)) {
-          this.remove_included(this.searchForm.value.exclude_ing)
+        if (this.included.includes(lowerCaseIng)) {
+          this.remove_included(lowerCaseIng)
         }
       }
     }
