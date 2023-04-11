@@ -139,7 +139,7 @@ flex-direction: column;
     bottom: 42%;
     /* top: 0; */
     filter: invert(93%) sepia(4%) saturate(3603%) hue-rotate(128deg) brightness(83%) contrast(81%);
-    animation: updown 2s ease infinite;
+    animation: updown 4s ease infinite;
 }
 
 @keyframes updown {
@@ -269,13 +269,22 @@ flex-direction: column;
     margin: 0 10px 0 20px;
     padding: 5px 10px;
     display: grid;
-    grid-template-rows: 0.8fr 0.8fr 2fr 1fr;
+    grid-template-rows: 0.8fr 0.4fr 2fr 1.2fr;
 }
 
 #all-wines-container h4{
     font-family: 'Poppins';
     font-weight: 600;
-    /* text-align: center; */
+    margin-bottom: 20px;
+    font-size: 1.1em;
+}
+
+.margin-bottom-20{
+    margin-bottom: 20px;
+}
+
+#all-wines-container>div {
+    margin-top: 10px;
 }
 
 #all-wines-bullets-container {
@@ -325,10 +334,10 @@ flex-direction: column;
 }
 
 .circle-img {
-    border-radius: 50%;
+    /* border-radius: 50%; */
     width: 175px;
     height: 175px;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 #wine-price-circle {
@@ -337,6 +346,10 @@ flex-direction: column;
     margin-top: -5px;
     border-radius: 50%;
     background-color: #006D77;
+}
+
+span:first-letter {
+    text-transform: uppercase;
 }
 
 @media screen and (max-width: 1200px) {

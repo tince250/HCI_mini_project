@@ -1,32 +1,5 @@
-<div id="paginated-cards-container">
-    <div *ngIf="noResults" class="no-results">
-        <p>{{ errorMessage }}</p>
-    </div>
-   
-    <div id="card-container" *ngIf="!noResults">
-        <div class="recipe-card basic-container" *ngFor="let recipe of recipesSlice" (click)="openRecipeDetails(recipe.id)" >
-            <div class="recipe-card-image" [style.backgroundImage]="'url(' + recipe.image + ')'" ></div>
-            <div class="recipe-card-text">
-                <p class="recipe-card-title green">{{ recipe.title }}</p>
-                <div class="recipe-stat">
-                    <i class="fa-sharp fa-solid fa-clock"></i>
-                    <p class="recipe-prep-time">{{ recipe.readyInMinutes }} min</p>
-                </div>
-                <div class="recipe-stat">
-                    <i class="fa-solid fa-user-group"></i>
-                    <p class="recipe-no-servings">{{ recipe.servings }}</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    
-    <mat-paginator [length]="this.totalResults"
-                  [pageSize]="this.pageSize"
-                  [pageSizeOptions]="[6, 8, 12]"
-                  [hidePageSize] = true
-                  (page)="handlePageEvent($event)"
-                  aria-label="Select page">
-    </mat-paginator>
-</div>
-
+<div>
+    <app-filter></app-filter>
+    <app-search></app-search>
+    <app-recipe-cards></app-recipe-cards>
+  </div>

@@ -175,7 +175,7 @@ export class SearchComponent implements OnInit {
   closeFilter(): void {
     const search = document.getElementsByTagName('app-search')[0] as HTMLElement;
     const filter = document.getElementsByTagName('app-filter')[0] as HTMLElement;
-    const homep = document.getElementsByTagName('app-homepage')[0] as HTMLElement;
+    const homep = document.getElementsByTagName('app-recipe-cards')[0] as HTMLElement;
 
     if(filter) {
       search.style.display = "none";

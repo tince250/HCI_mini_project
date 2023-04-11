@@ -94,28 +94,29 @@
 
 <div *ngIf="recipe.winePairing.pairedWines.length != 0" class="border wines-shadow" id="wines-container">
     <div id="all-wines-container">
-        <h4 class="green">Care for a cup of Wine with your meal?</h4>
+        <h4 [ngClass]="recipe.winePairing.pairedWines.length < 3 ? 'green margin-bottom-20' : 'green'">Care for a cup of Wine with your meal?</h4>
         <span>This dish always goes well with:</span>
-        <div id="all-wines-bullets-container" *ngFor="let wine of recipe.winePairing.pairedWines; let indexOfelement =index">
-            <div *ngIf="indexOfelement < 3" class="ingredient-bullet">
+        <div>
+            <div id="all-wines-bullets-container" *ngFor="let wine of recipe.winePairing.pairedWines; let indexOfelement =index" class="ingredient-bullet">
                 <i class="fa-solid fa-circle"></i>
-                <span> {{ wine.toUpperCase() }} </span>
+                <span> {{ wine }} </span>
             </div>
         </div>
 
-        <span>{{ recipe.winePairing.pairingText }}</span>
+        <span>{{ recipe.winePairing.pairingText.split('.')[0] + "."}}</span>
     </div>
     <div id="recommended-wine-container">
         <span>our recommendation:</span>
         <div id="recommended-wine-name" class="back-green">
-            {{ recipe.productMatches[0].title }}
+            {{ recipe.winePairing.productMatches[0].title }}
         </div>
         <div style="padding: 15px;">
-            <a [href]="recipe.productMatches[0].link">
-                <img [src]="recipe.productMatches[0].imageUrl" class="circle-img">
+            <a [href]="recipe.winePairing.productMatches[0].link">
+                <img [src]="recipe.winePairing.productMatches[0].imageUrl" class="circle-img">
             </a>
+            <!-- <img [src]="recipe.productMatches[0].imageUrl" class="circle-img"> -->
             
         </div>
-        <span>{{ recipe.productMatches[0].description }}</span>
+        <span>{{ recipe.winePairing.productMatches[0].description.split('.')[0] + "."}}</span>
     </div>
 </div>
