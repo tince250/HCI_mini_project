@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-
+/* @import "~@angular/material/prebuilt-themes/indigo-pink.css"; */
 body {
     margin: 0;
     background-color: #F9F9F9;
@@ -17,6 +17,8 @@ html, body { height: 100%; width: 100%; margin: 0; font-family: "Poppins", sans-
     padding: 0;
     font-size: 12px;
 }
+
+
 
 .mat-form-field-wrapper {
     height: 50px !important;
@@ -48,6 +50,13 @@ html, body { height: 100%; width: 100%; margin: 0; font-family: "Poppins", sans-
 .mat-form-field-prefix {
     top: 1px !important;
 }
+
+.mat-mdc-text-field-wrapper {
+    background-color: white !important;
+}
+
+
+
 
 .border {
     border: 1px solid #E6E6E6;
@@ -86,6 +95,10 @@ html, body { height: 100%; width: 100%; margin: 0; font-family: "Poppins", sans-
     background-color: #FF9A6C !important;
 }
 
+
+.flag-pink {
+    background-color: #F0C8BB;
+}
 .green {
     color: #83C5BE !important;
 }
@@ -107,10 +120,73 @@ html, body { height: 100%; width: 100%; margin: 0; font-family: "Poppins", sans-
 }
 
 .back-gray {
-    background-color: #B9BBBD !important;
+    background-color: #F5F5F5 !important;
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.basic-container {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+p {
+    margin: 0;
+}
+
+.recipe-stat {
+    display: inline-block;
+    font-size: 0.8em;
+}
+
+.recipe-stat i {
+    display: inline-block;
+    margin-right: 5px;
+} 
+
+.recipe-stat p {
+    display: inline-block;
+    margin-right: 10px;
+} 
+
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: "Poppins", "Helvetica Neue", sans-serif; }
+
+/* CUSTOM SCROLLBAR
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+    
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #ffffff; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #c0c0c0; 
+    border-radius: 2px;
+    height: 20px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #969696; 
+  }
+
+.error-image{
+    background-image: none;
+}
+
+
+.image-not-shown-container{
+    text-align: center;
+    padding-top: 10px;
+    font-family: 'Poppins';
+    font-size: 1.1em;
+    font-weight: 600;
+    color: white;
+}

@@ -1,0 +1,295 @@
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+p {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+#main-container {
+    width: 100%;
+    height: 100%;
+    /* border: 1px solid black; */
+    align-items: center;
+    background-color: white;
+    color: #B9BBBD !important;
+    overflow-y: scroll;
+}
+
+::ng-deep #max-cal .mat-form-field-underline {
+    border-radius: 20px; /* Adjust the value as desired */
+  }
+  
+  ::ng-deep #max-cal .mat-form-field-ripple {
+    border-radius: 20px; /* Adjust the value as desired */
+  }
+  
+  ::ng-deep #max-cal .mat-form-field-wrapper {
+    border-radius: 20px; /* Adjust the value as desired */
+  }
+.title > div {
+    width: 100%;
+}
+
+#title-text {
+    width: 30%;
+    margin-top: -20px;
+    margin-bottom: 10px;
+}
+
+#title-img {
+    height: 160px;
+    /* height: 200px; */
+    margin: 0 auto; 
+}
+
+#x {
+    margin-left: auto;
+    height: 20px;
+    margin-top: 10px;
+    display: none;
+}
+
+.title {
+    width: 80%;
+    align-items: center;
+}
+
+
+/* FORM */
+
+.form {
+    width: 90%;
+}
+form {
+    width: 100%;
+}
+
+
+/* FIELD TITLE AND LINE */
+
+.field-title {
+    width: 90%;
+    vertical-align: middle;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+    font-weight: 400;
+}
+
+.field-title > p {
+    align-self: left;
+    margin-right: auto;
+    width: fit-content;
+    color: #8c8e90;
+}
+
+.line {
+    height: 1px;
+    width: min-content;
+    flex-grow: 1;
+    background-color: #a5a7a9;
+    border: none;
+    outline: none;
+    align-items: baseline;
+    margin-left: 0.5rem;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-weight: normal !important;
+}
+
+::ng-deep .mat-mdc-form-field-infix {
+    min-height: 44px !important;
+}
+
+::ng-deep .mat-mdc-text-field-wrapper.mdc-text-field--outlined .mat-mdc-form-field-infix {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/* FORM FIELD */
+
+mat-form-field {
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    font-size: 0.9em;
+}
+
+mat-error {
+    font-size: 0.7em;
+}
+
+/* 
+.mat-mdc-form-field-subscript-wrapper {
+    height: 0;
+}
+
+::ng-deep .mdc-form-field>label {
+    color: #8c8e90 !important;
+}
+*/
+
+::ng-deep mat-label {
+    align-items: center;
+    align-content: center;
+    vertical-align: middle;
+    align-self: center;
+    margin-bottom: auto;
+    color: #8c8e90 !important;
+}
+
+mat-label > img {
+    height: 1rem;
+    margin: auto;
+    margin-right: 0.5rem;
+} 
+
+::ng-deep .mat-mdc-text-field-wrapper .mat-mdc-form-field-flex .mat-mdc-floating-label {
+    top: 50%;
+}
+
+/* MAX I MIN FIELDS */
+
+#max-cal {
+    width: 35%;
+}
+
+#min-cal {
+    width: 35%;
+}
+
+
+/* INCLUDED INGR */
+#included-container {
+    margin-top: -15px;
+}
+
+#included-container {
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+#included-container::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+}
+
+
+.included-item {
+    font-family: 'Poppins', sans-serif;
+    padding: 0.2em 0.6em;
+    align-self: center;
+    align-items: center;
+    border-radius: 15px;
+    margin-bottom: 1rem;
+    margin-right: 5px;
+}
+
+.included-item div {
+    color: white;
+}
+
+#img {
+    height: 100%;
+    display: flex;
+}
+
+.included-item  img {
+    margin-right: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 0.5rem;
+    padding-top: 0.3rem;
+}
+
+.background-green {
+    background-color: #83C5BE;
+}
+
+.background-red {
+    background-color: #E29578;
+}
+
+
+#btn {
+    width: 100%;
+    display: flex;
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 0.8rem 0.6rem;
+    width: 8rem;
+    background-color: #006D77;
+    color: white;
+    border-radius: 12px;
+    border: none;
+    font-size: 0.9em;
+    font-family: 'Poppins', sans-serif;
+    margin: 0 auto;
+    align-self: center;
+    align-content: center;
+    align-items: center ;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.checkboxes {
+    width: 95%;
+    margin: 0 auto;
+    font-size: 0.95em;
+    color: #8c8e90 !important;
+    margin-bottom: 12px;
+}
+
+::ng-deep .mat-mdc-checkbox label {
+    color: #8c8e90 !important;
+    padding-left: 0px;
+}
+
+::ng-deep .mdc-form-field>label {
+    padding-left: 0px !important;
+    margin-left: -5px !important;
+}
+
+.dairy-checkbox {
+    margin-left: 10px;
+}
+
+.remove-ingredient {
+    transform:rotate(45deg);
+    margin-left: 8px;
+    margin-top: 1px;
+    cursor: pointer;
+}
+
+#dropdown-form {
+    display: none;
+}
+
+@media screen and (max-width: 1160px) {
+    #dropdown-form {
+        display: block;
+    }
+
+    #x {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    #dropdown-form {
+        display: flex;
+        flex-direction: column;
+    }
+}

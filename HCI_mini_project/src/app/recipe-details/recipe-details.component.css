@@ -1,0 +1,452 @@
+#details-div{
+    /* display: flex; */
+    /* align-items: center; */
+    width: 60%;
+    margin: 0 auto;
+    height: 600px;
+    margin-top: 20px;
+    box-shadow: 0 5px 2px -2px #B9BBBD;
+}
+
+#upper-details-container{
+    position: relative;
+    height: 50%;
+    background-color: #D9D9D9; 
+    border-radius: 10px;
+}
+
+.img-border {
+    position: inherit;
+    height: 80%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.img-border {
+    border-radius: 10px 10px 0px 0px;
+}
+
+.summary-container {
+    border-radius: 0px 0px 10px 10px;
+    /* width: 100%; */
+    margin-top: -15px;
+    background-color: #D9D9D9;
+    padding: 40px 10px 20px 10px;
+    font-family: 'Poppins';
+    color: white;
+    font-size: 1.1em;
+    font-weight: 500;
+    /* text-align: center; */
+}
+
+#title-container{
+    border-radius: 10px;
+    background-color: white;
+    width: 85%;
+    min-height: 80px;
+    height: fit-content;
+    position: absolute;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    bottom: 40px;
+}
+
+#recipe-name-container{
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding-top: 8px;
+}
+
+#recipe-name-text {
+    font-family: 'Poppins';
+    font-size: 1.6em;
+    font-weight: 700;
+}
+
+#main-details-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 20px;
+    font-family: 'Poppins';
+    font-weight: 600;
+}
+
+#main-details-container>div{
+    display: inline-block;
+}
+
+#main-details-container i {
+    margin-right: 5px;
+}
+
+#ingredient-directions-container{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    /* height: 100%; */
+    position: relative;
+    margin-top: 5px;
+    font-family: 'Poppins';
+}
+
+#id-line{
+    /* position: relative; */
+    position: inherit;
+    border-right: 1px solid #B9BBBD;
+    margin-top: 20px;
+    margin-left: 15px;
+    margin-right: 15px;
+    /* height: 100%; */
+}
+
+#ingredient-container{
+    width: 35%;
+    position: relative;
+}
+
+.aibcp {
+    max-height: 220px;
+    overflow: auto;
+}
+
+.aibcp  {
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+.aibcp::-webkit-scrollbar {
+    display: none; /* Set the width of the scrollbar */
+  }
+
+  
+.aibcf {
+display: flex;
+flex-direction: column;
+}
+
+#ingredient-directions-container h4, #no-instructions-container h4{
+    text-align: center;
+    font-size: 1.2em !important;
+    margin-bottom: 12px !important;
+    position: relative;
+}
+
+#ingredient-directions-container img {
+    position: absolute;
+    scale: 1.1;
+    right: 0;
+    bottom: 42%;
+    /* top: 0; */
+    filter: invert(93%) sepia(4%) saturate(3603%) hue-rotate(128deg) brightness(83%) contrast(81%);
+    animation: updown 4s ease infinite;
+}
+
+@keyframes updown {
+    0% {
+      transform: translateY(-100%);
+    }
+  
+    50% {
+      transform: translateY(200%);
+    }
+  
+    100% {
+      transform: translateY(-100%);
+    }
+  }
+
+.scrollNotVisible {
+    display: none;
+}
+
+#directions-container{
+    width: 60%;
+    position: relative;
+}
+
+#all-ingredient-bullets-container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+#all-directions-bullets-container{
+    width: 95%;
+    margin: 0 auto;
+}
+
+.ingredient-bullet, .direction-bullet{
+    margin-bottom: 12px;
+    width: 98%;
+}
+
+.ingredient-bullet i {
+    color: #FFDDD2;
+    margin-right: 8px;
+}
+
+.ingredient-bullet span, .direction-bullet span, #all-wines-container span, #recommended-wine-container > span{
+    color: #455A64;
+    word-wrap: break-word;
+}
+
+.direction-bullet i {
+    font-size: 1.2em;
+    margin-right: 8px;
+    color: #D9D9D9;
+}
+
+.square-bullet{
+    display: inline-block;
+    background-color: #D9D9D9;
+    width: 20px;
+    text-align: center;
+    margin-right: 8px;
+    border-radius: 2px;
+    color: white;
+    font-family: 'Poppins';
+    font-weight: 700;
+}
+
+#no-instructions-container{
+    width: 60%;
+    height: 100%;
+    position: relative;
+}
+
+#nit-container{
+    width: 100%;
+    /* height: 100%; */
+    justify-content: center;
+    vertical-align: middle;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#nit-container span{
+    font-size: 1em;
+    color: #E29578;
+    font-family: 'Poppins';
+    font-weight: 700;
+}
+
+#all-flags-container{
+    position: absolute;
+    right: 0;
+    bottom: -13px;
+}
+
+.flag-container{
+    margin-right: 15px; 
+    display: inline-block; 
+    padding: 2px 25px; 
+    border-radius: 12px; 
+    font-size: 1em; 
+    font-family: 'Poppins'; 
+    color: white; 
+    font-weight: 600;
+}
+
+#two-options-container {
+    width: 100%;
+    display: none;
+}
+
+.option-container {
+    width: 50%;
+    font-size: 1.2em;
+    font-family: 'Poppins';
+    /* font-weight: 600; */
+}
+
+.weight-700{
+    font-weight: 700;
+}
+
+#all-wines-container {
+    width: 53%;
+    margin: 0 10px 0 20px;
+    padding: 5px 10px;
+    display: grid;
+    grid-template-rows: 0.8fr 0.4fr 2fr 1.2fr;
+}
+
+#all-wines-container h4{
+    font-family: 'Poppins';
+    font-weight: 600;
+    margin-bottom: 20px;
+    font-size: 1.1em;
+}
+
+.margin-bottom-20{
+    margin-bottom: 20px;
+}
+
+#all-wines-container>div {
+    margin-top: 10px;
+}
+
+#all-wines-bullets-container {
+    padding: 0 20px;
+}
+
+#no-wines-container{
+    display: flex; width: 60%; margin: 20px auto; border-radius: 10px 10px 0 0; height: fit-content; text-align: center;
+}
+
+.wines-shadow{
+    box-shadow: 0 -3px 3px 0px #B9BBBD;
+}
+
+#no-wines-container span{
+    font-family: 'Poppins';
+    padding: 15px;
+    font-weight: 600;
+}
+
+#wines-container {
+    display: flex; width: 60%; margin: 20px auto; border-radius: 10px 10px 0 0; min-height: 300px;
+}
+
+#recommended-wine-container {
+    width: 46%;
+    border-radius: 10px;
+    padding-top: 15px;
+    background-color: #D9D9D9;
+    text-align: center;
+}
+
+#recommended-wine-container span{
+    color: #455A64;
+    font-size: 0.9em;
+}
+
+#recommended-wine-name {
+    padding: 4px 10px;
+    color: white;
+    font-family: 'Poppins';
+    font-weight: 600;
+    background-color: aqua;
+    width: fit-content;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+.circle-img {
+    /* border-radius: 50%; */
+    width: 175px;
+    height: 175px;
+    object-fit: contain;
+}
+
+#wine-price-circle {
+    margin-left: -30px;
+    margin-right: 10px;
+    margin-top: -5px;
+    border-radius: 50%;
+    background-color: #006D77;
+}
+
+span:first-letter {
+    text-transform: uppercase;
+}
+
+@media screen and (max-width: 1200px) {
+    #details-div, #wines-container, #no-wines-container {
+      width: 80%;
+    }
+  }
+
+  @media screen and (max-width: 900px) {
+    #details-div, #title-container, #wines-container, #no-wines-container {
+      width: 90%;
+    }
+  }
+
+@media screen and (max-width: 750px) {
+    #details-div, #wines-container {
+      height: auto;
+    }
+
+    .scroll-img {
+        display: none;
+    }
+
+    #title-container{
+        width: 100%;
+        z-index: 1;
+        position: relative;
+        bottom: 20px;
+        /* margin-top: -50px; */
+    }
+
+    #upper-details-container{
+        background-color: white;
+    }
+
+    #main-details-container{
+        margin-top: 5px;
+    }
+
+    #main-details-container > div {
+        text-align: center;
+    }
+
+    #main-details-container > div > span > span {
+        display: block;
+    }
+
+    .scroll-img, #ingredient-directions-container h4 {
+        display: none;
+    }
+
+    #ingredient-directions-container {
+        flex-wrap: nowrap;
+        flex-direction: column;
+        margin-top: 30px;
+    }
+
+    #ingredient-container, #directions-container, #all-ingredient-bullets-container, .ingredient-bullet{
+        width: 100%;
+    }
+
+    .aibcp {
+        max-height: none;
+        margin-top: 20px;
+    }
+
+    #all-ingredient-bullets-container{
+        margin: 0 10px;
+    }
+
+    #two-options-container{
+        display: block;
+    }
+
+    #id-line {
+        display: none;
+    }
+
+    .no-display{
+        display: none;
+    }
+
+    #wines-container{
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #recommended-wine-container, #all-wines-container{
+        width: 100%;
+        margin: auto;
+    }
+
+    #all-wines-container{
+        padding: 0;
+    }
+
+    #recommended-wine-container{
+        border-radius: 10px 10px 0 0;
+    }
+  }

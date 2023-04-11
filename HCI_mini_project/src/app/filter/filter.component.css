@@ -1,0 +1,139 @@
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+p {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+form {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+}
+
+
+#main_container {
+    width: fit-content;
+    height: 10%;
+    margin-left: 30px;
+    padding-top: 20px;
+
+}
+
+
+
+/* search bar */
+#search-bar {
+    width: 400px;
+}
+
+mat-label img {
+    margin-left: 230px;
+    align-self: flex-end;
+    align-content: end;
+}
+
+mat-label div {
+    margin-right: auto;
+}
+
+
+/* cuisine drop down */
+
+#cuisine-dd {
+    margin-left: 30px;
+    width: 180px;
+}
+
+::ng-deep .mat-mdc-select-arrow svg {
+    top: 70% !important;
+    transform: translate(-50%, -50%) !important;
+}
+
+::ng-deep .mat-mdc-text-field-wrapper:not(.mdc-text-field--outlined) .mat-mdc-form-field-infix {
+    padding-top: 12px;
+    padding-bottom: 4px;
+}
+
+::ng-deep mat-label>img {
+    height: 1.3em;
+}
+#main_container > div > img {
+    display: none;
+}
+
+@media screen and (max-width: 1450px) {
+    form {
+        flex-direction: column;
+        margin: 0 auto;
+    }
+
+    form div {
+        margin: 0 auto;
+    }
+
+    #main_container {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+@media screen and (max-width: 1160px) {
+    #cuisine-dd {
+        display: none;
+    }
+
+    #main_container {
+        height: fit-content;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        margin: 0;
+    }
+
+    form {
+        margin-left: auto;
+        margin-right: 0;
+    }
+
+     #main_container > div {
+        margin-right: auto;
+        background-color: #83C5BE;
+        display: flex;
+        /* padding: 0.5rem; */
+        border-radius: 70px;
+        height: 35px;
+        padding: 5px 0;
+        margin-left: 10px;
+     }
+
+     #main_container > div > img {
+        /* margin: auto 15px; */
+        /* margin-top: auto;
+        margin-bottom: auto; */
+        display: block;
+        margin: auto 15px;
+        height: 20px;
+     }
+}
+
+
+@media screen and (max-width: 500px) {
+    #search-bar {
+        width: 250px;
+    }
+    
+    mat-label img {
+        margin-left: 80px;
+        align-self: flex-end;
+        align-content: end;
+    }
+}
