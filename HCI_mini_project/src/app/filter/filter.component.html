@@ -1,0 +1,39 @@
+<div id="main_container">
+    <form fxLayout="row" [formGroup]="searchForm" #formDirective="ngForm">
+        <mat-form-field (keydown.enter)="search()" [hideRequiredMarker]="true"  id="search-bar">
+            <mat-label class="row">
+                <div>Recipe name...</div> <img src="../../assets/images/search-icon.svg"></mat-label>
+            <input matInput type="text" name="prep-time" formControlName="search_bar" />
+        </mat-form-field>
+
+        <div>
+          <mat-form-field id="cuisine-dd">
+              <mat-label>Cuisine</mat-label>
+              <mat-select  (selectionChange)="searchByCusine($event)">
+                <mat-option *ngFor="let item of cuisine_dd" [value]="item">
+                  {{item}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field  id="cuisine-dd">
+              <mat-label>Meal type</mat-label>
+              <mat-select (selectionChange)="searchByType($event)">
+                <mat-option *ngFor="let item of type_dd" [value]="item" >
+                  {{item}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field id="cuisine-dd">
+              <mat-label>Diet</mat-label>
+              <mat-select (selectionChange)="searchByDiet($event)">
+                <mat-option *ngFor="let item of diet_dd" [value]="item">
+                  {{item}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+    </form>
+    <div (click)="openFilter()"><img src="../../assets/images/filter.svg"></div>
+</div>
