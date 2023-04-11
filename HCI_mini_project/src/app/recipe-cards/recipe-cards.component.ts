@@ -151,9 +151,9 @@ export class RecipeCardsComponent implements OnInit {
     if (endIndex > this.allFetchedRecipes.length) {
       endIndex = this.allFetchedRecipes.length;
     }
-    console.log(startIndex + " " + endIndex);
+    // console.log(startIndex + " " + endIndex);
     this.recipesSlice = this.allFetchedRecipes.slice(startIndex, endIndex);
-    console.log(this.recipesSlice)
+    // console.log(this.recipesSlice)
 
     if (this.scrollable) {
       window.scroll({ 
@@ -179,8 +179,4 @@ export class RecipeCardsComponent implements OnInit {
       },
     });
   }
-  //this.router.navigate(['../recipe-details']);
-  // }
 } 
-//}
-

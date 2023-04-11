@@ -17,6 +17,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { FilterComponent } from './filter/filter.component'
 import { HttpClientModule } from '@angular/common/http';
 import { HomepageComponent } from './homepage/homepage.component';
+import { SnackBarComponent } from './custom-snack-bar/snack-bar/snack-bar.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { HomepageComponent } from './homepage/homepage.component';
     RecipeCardsComponent,
     SearchComponent,
     FilterComponent,
-    HomepageComponent
+    HomepageComponent,
+    SnackBarComponent
   ],
   imports: [
     BrowserModule,

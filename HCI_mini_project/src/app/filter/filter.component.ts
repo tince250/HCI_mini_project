@@ -1,6 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { AllRecipesDTO, RecipesService } from '../services/recipesService';
 
 @Component({
@@ -63,8 +64,6 @@ export class FilterComponent implements OnInit {
 
   constructor(private service: RecipesService) {}
   ngOnInit(): void {
-    // throw new Error('Method not implemented.');
-    console.log('cao')
   }
 
   search() : void {

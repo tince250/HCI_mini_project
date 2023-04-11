@@ -6,6 +6,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { numberRegexValidator, prepTimeValidator } from '../validators/searchValidators';
 import { RecipesService } from '../services/recipesService';
 import { minMaxValidator } from '../validators/minMaxValidators';
+import { SnackBarService } from '../custom-snack-bar/snack-bar.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html', 
@@ -14,7 +16,7 @@ import { minMaxValidator } from '../validators/minMaxValidators';
 export class SearchComponent implements OnInit {
 
 
-  constructor(private service: RecipesService) {}
+  constructor(private service: RecipesService, private snackBarService: SnackBarService, private snackBar: MatSnackBar) {}
 
   ngOnInit(): void {
     // throw new Error('Method not implemented.')
@@ -87,7 +89,7 @@ export class SearchComponent implements OnInit {
   
   search() : void {
     if (!this.searchForm.valid){
-      console.log("greska");
+      this.snackBarService.openInvalidInputSnack();
       return;
     }
     this.service.filter(this.searchForm, this.gluten_checked, this.dairy_checked, this.included, this.excluded, this.selected_cuisine, this.selected_type, this.selected_diet).subscribe({
@@ -96,7 +98,7 @@ export class SearchComponent implements OnInit {
         this.service.setFetchedRecipes(res);
       },
       error: (error: any) => {
-        console.log("Server is not responding.")
+        this.snackBarService.openNoResponseSnack();
       }
     });
     if (window.innerWidth < 1000)
