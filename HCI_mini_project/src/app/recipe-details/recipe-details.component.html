@@ -98,8 +98,8 @@
         <span>This dish always goes well with:</span>
         <div>
             <div id="all-wines-bullets-container" *ngFor="let wine of recipe.winePairing.pairedWines; let indexOfelement =index" class="ingredient-bullet">
-                <i class="fa-solid fa-circle"></i>
-                <span> {{ wine }} </span>
+                <i class="fa-solid fa-circle" *ngIf="indexOfelement < 3"></i>
+                <span *ngIf="indexOfelement < 3"> {{ wine }} </span>
             </div>
         </div>
 
