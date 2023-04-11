@@ -25,6 +25,7 @@ export class RecipeCardsComponent implements OnInit {
   smallerDesktopFour: MediaQueryList;
   biggerDesktop: MediaQueryList;
 
+  imageError = false;
   scrollable = false;
   noResults = false;
   errorMessage = "";
@@ -178,5 +179,9 @@ export class RecipeCardsComponent implements OnInit {
         this.errorMessage = "Oops! Something went wrong on our side. Try to open some other recipe, if the problem persists - try again later."
       },
     });
+  }
+
+  imageNotLoaded(){
+    this.imageError = true;
   }
 } 

@@ -2,7 +2,8 @@
 
 <div class="border" id="details-div">
     <div id="upper-details-container">
-        <img [src]="recipe.image" class="img-border">
+        <img [src]="recipe.image" class="img-border" (error)="imageNotLoaded()" onerror="this.style.display = 'none';">
+        <div [hidden]="!imageError" class="image-not-shown-container">Recipe doesn't have image</div>
         <div id="title-container">
             <div id="recipe-name-container">
                 <span id="recipe-name-text" class="green">{{ recipe.title }}</span>

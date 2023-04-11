@@ -18,6 +18,7 @@ export class RecipeDetailsComponent implements OnInit, AfterViewInit {
   isDirectionScrollNeedable: boolean = false;
   firstOption: boolean = true;
   responsiveOptions: boolean = false;
+  imageError: boolean = false;
 
   recipe: any;
   constructor(private ref: ChangeDetectorRef, private recipesService: RecipesService){
@@ -45,6 +46,10 @@ export class RecipeDetailsComponent implements OnInit, AfterViewInit {
     if (!this.responsiveOptions)
       this.responsiveOptions = true;
     this.ref.detectChanges();
+  }
+
+  imageNotLoaded() {
+    this.imageError = true;
   }
 
   ngOnInit(): void {

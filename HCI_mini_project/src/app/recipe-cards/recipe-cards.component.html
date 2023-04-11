@@ -5,7 +5,10 @@
    
     <div id="card-container" *ngIf="!noResults">
         <div class="recipe-card basic-container" *ngFor="let recipe of recipesSlice" (click)="openRecipeDetails(recipe.id)" >
-            <div class="recipe-card-image" [style.backgroundImage]="'url(' + recipe.image + ')'" ></div>
+            <div [ngClass]="imageError == true ? 'error-image' : ''" style="height: 100%">
+                <div class="recipe-card-image" [style.backgroundImage]="'url(' + recipe.image + ')'" (onerror)="imageNotLoaded()"></div>
+                <div [hidden]="!imageError" class="image-not-shown-container" style="color: #E29578 !important">Recipe doesn't have image</div>
+            </div>
             <div class="recipe-card-text">
                 <p class="recipe-card-title green">{{ recipe.title }}</p>
                 <div class="recipe-stat">

@@ -176,3 +176,17 @@ body { margin: 0; font-family: "Poppins", "Helvetica Neue", sans-serif; }
   ::-webkit-scrollbar-thumb:hover {
     background: #969696; 
   }
+
+.error-image{
+    background-image: none;
+}
+
+
+.image-not-shown-container{
+    text-align: center;
+    padding-top: 10px;
+    font-family: 'Poppins';
+    font-size: 1.1em;
+    font-weight: 600;
+    color: white;
+}
