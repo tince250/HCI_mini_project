@@ -223,6 +223,7 @@ mat-label > img {
     width: 100%;
     display: flex;
     margin-bottom: 20px;
+    margin-top: 10px;
 }
 
 button {

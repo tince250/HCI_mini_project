@@ -77,8 +77,8 @@ export class SearchComponent implements OnInit {
     min_cal: new FormControl('', numberRegexValidator),
     include_ing: new FormControl('', lettersRegexValidator),
     exclude_ing: new FormControl('', lettersRegexValidator),
-  }, [])
-  // }, [minMaxValidator("min_cal", "max_cal")])
+  // }, [])
+  }, [minMaxValidator("min_cal", "max_cal")])
 
   
 

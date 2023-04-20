@@ -17,7 +17,7 @@ export class RecipeDetailsComponent implements OnInit, AfterViewInit {
   directionScrollableDiv: ElementRef;
   isDirectionScrollNeedable: boolean = false;
   firstOption: boolean = true;
-  responsiveOptions: boolean = false;
+  responsiveOptions: boolean = false; 
   imageError: boolean = false; 
 
   recipe: any;
